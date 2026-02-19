@@ -249,7 +249,9 @@
             <a href="#agents" class="nav-pill">Agents</a>
             <a href="#cs" class="nav-pill">CS Automation</a>
             <a href="#revenue" class="nav-pill">Revenue</a>
-            <a href="#advanced" class="nav-pill">Advanced</a>
+            <a href="#templates" class="nav-pill">Templates</a>
+            <a href="#integrations" class="nav-pill">Integrations</a>
+            <a href="#security" class="nav-pill">Security</a>
         </nav>
         
         <div class="box-accent">
@@ -601,6 +603,118 @@ You care about our customers' success.
                 <li>Run locally — data stays on your machine</li>
                 <li>Use environment variables for secrets</li>
                 <li>Review agent outputs before sending externally</li>
+            </ul>
+        </section>
+        
+        <section id="templates">
+            <h2>// COPY-PASTE TEMPLATES</h2>
+            
+            <h3>SOUL.md — Personal Assistant Agent</h3>
+            <pre><code># SOUL.md - Personal Assistant
+
+## Persona
+You are a thoughtful, proactive personal assistant. You're warm but efficient.
+
+## Values
+- Efficiency over exhaustiveness
+- Proactive, not pushy
+- Privacy-first
+
+## Behavior
+- Short, scannable responses
+- Use bullets and numbered lists
+- Include action items at the end
+- Match the user's energy</code></pre>
+            
+            <h3>SOUL.md — CS Automation Agent</h3>
+            <pre><code># SOUL.md - Customer Success Agent
+
+## Persona
+You are a proactive Customer Success partner.
+
+## Values
+- Prevent churn before it happens
+- Look for expansion opportunities
+- Be helpful, not pushy
+- Data-driven decisions
+
+## Behavior
+- Start with specific, actionable insights
+- Always include next steps
+- Escalate early when something feels off</code></pre>
+            
+            <h3>Daily Briefing Prompt</h3>
+            <pre><code>You are my Daily Briefing Assistant. Every morning at 8am, review my calendar and tasks. Provide a brief summary:
+
+1. Top 3 priorities for today
+2. Meetings needing preparation
+3. Follow-ups I might be missing
+
+Keep it under 5 bullet points. Format:
+- 🔴 Urgent
+- 🟡 Important
+- 🟢 Can defer</code></pre>
+        </section>
+        
+        <section id="integrations">
+            <h2>// CONNECTING YOUR TOOLS</h2>
+            
+            <h3>GitHub Integration</h3>
+            <p>Your agent can read/write to GitHub repos.</p>
+            <ol>
+                <li>Create a Personal Access Token at github.com/settings/tokens</li>
+                <li>Select "repo" scope</li>
+                <li>Add token to OpenClaw config</li>
+            </ol>
+            
+            <h3>Email Integration</h3>
+            <p>Connect Gmail or Outlook for your agent to:</p>
+            <ul>
+                <li>Read and summarize emails</li>
+                <li>Draft replies</li>
+                <li>Track follow-ups</li>
+            </ul>
+            <p><strong>Setup:</strong> Use OAuth or app-specific passwords. Never expose credentials in prompts.</p>
+            
+            <h3>Calendar Integration</h3>
+            <p>Your agent can:</p>
+            <ul>
+                <li>Read upcoming meetings</li>
+                <li>Summarize today's schedule</li>
+                <li>Find open time slots</li>
+            </ul>
+            <p><strong>Setup:</strong> Connect via Google Calendar API or Outlook.</p>
+        </section>
+        
+        <section id="security">
+            <h2>// SECURITY MATTERS</h2>
+            
+            <div class="box">
+                <h3>Why Use a Dedicated Machine?</h3>
+                <p>Running AI agents means giving them access to your digital life. A dedicated or freshly wiped machine keeps your personal data separate.</p>
+                <ul>
+                    <li><strong>Isolation:</strong> If compromised, only the dedicated machine is affected</li>
+                    <li><strong>Clean slate:</strong> No old credentials, old accounts, or sensitive data</li>
+                    <li><strong>Peace of mind:</strong> You control exactly what's accessible</li>
+                </ul>
+            </div>
+            
+            <h3>Essential Security Practices</h3>
+            <ul>
+                <li><strong>Never put API keys in prompts</strong> — Use environment variables</li>
+                <li><strong>Run locally</strong> — Your data stays on your machine</li>
+                <li><strong>Review before sending</strong> — Don't let agents email externally unchecked</li>
+                <li><strong>Use separate accounts</strong> — Create dedicated accounts for agent actions</li>
+                <li><strong>Set usage alerts</strong> — Monitor token usage for unexpected spikes</li>
+                <li><strong>Keep software updated</strong> — OpenClaw and your OS</li>
+            </ul>
+            
+            <h3>What NOT to Do</h3>
+            <ul>
+                <li>Don't share your screen with agents running</li>
+                <li>Don't store passwords in plain text</li>
+                <li>Don't give agents admin access unless needed</li>
+                <li>Don't skip reviewing agent outputs</li>
             </ul>
         </section>
         
