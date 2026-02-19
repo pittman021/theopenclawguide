@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClaw Master Guide | Build AI Agents in 30 Days</title>
+    <meta name="description" content="The definitive guide to building production AI agents with OpenClaw. No coding required.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg: #ffffff;
+            --text: #000000;
+            --text-secondary: #555555;
+            --accent: #F7DF1E;
+            --accent-dark: #E5C100;
+            --border: #000000;
+            --border-light: #e0e0e0;
+            --bg-secondary: #fafafa;
+        }
+        
+        body { 
+            font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace; 
+            background: var(--bg); 
+            color: var(--text); 
+            line-height: 1.7;
+            font-size: 15px;
+        }
+        
+        .container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 40px 20px;
+        }
+        
+        /* Header */
+        header {
+            border: 3px solid var(--border);
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 8px 8px 0 var(--border);
+            background: var(--bg);
+        }
+        
+        h1 { 
+            font-size: 2.2rem; 
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            margin-bottom: 10px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        .subtitle { 
+            font-size: 1.1rem; 
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+        
+        .byline { 
+            color: var(--text-secondary); 
+            font-size: 0.85rem; 
+            margin-top: 15px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        /* Sections */
+        section {
+            margin-bottom: 50px;
+        }
+        
+        h2 { 
+            font-size: 1.5rem; 
+            font-weight: 800;
+            margin: 50px 0 20px;
+            padding: 15px 20px;
+            background: var(--text);
+            color: var(--bg);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        h3 { 
+            font-size: 1.15rem; 
+            font-weight: 700;
+            margin: 30px 0 15px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        p { margin: 15px 0; }
+        
+        ul, ol { margin: 15px 0 15px 25px; }
+        li { margin: 8px 0; }
+        
+        /* Boxes */
+        .box {
+            border: 2px solid var(--border);
+            padding: 20px;
+            margin: 25px 0;
+        }
+        
+        .box-accent {
+            border: 3px solid var(--border);
+            padding: 25px;
+            margin: 30px 0;
+            box-shadow: 6px 6px 0 var(--border);
+            background: var(--bg);
+        }
+        
+        .box-accent h3 {
+            margin-top: 0;
+            background: var(--accent);
+            display: inline-block;
+            padding: 5px 12px;
+            margin-bottom: 15px;
+        }
+        
+        /* Code */
+        code { 
+            background: var(--bg-secondary); 
+            padding: 2px 6px; 
+            font-size: 0.9em;
+            font-family: 'SF Mono', 'Monaco', monospace;
+            border: 1px solid var(--border-light);
+        }
+        
+        pre { 
+            background: #1a1a1a;
+            color: #f0f0f0;
+            border: 2px solid var(--border);
+            padding: 20px;
+            overflow-x: auto; 
+            margin: 20px 0; 
+            font-size: 0.85rem;
+            box-shadow: 6px 6px 0 var(--border);
+        }
+        
+        pre code { 
+            background: none; 
+            border: none; 
+            padding: 0; 
+            color: inherit;
+        }
+        
+        /* Tables */
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin: 25px 0;
+            border: 2px solid var(--border);
+            font-size: 0.9rem;
+        }
+        
+        th, td { 
+            padding: 12px 15px; 
+            text-align: left; 
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        th { 
+            background: var(--text);
+            color: var(--bg);
+            font-weight: 700;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            border-bottom: 2px solid var(--border);
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--text);
+            padding: 14px 28px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            border: 3px solid var(--border);
+            box-shadow: 4px 4px 0 var(--border);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        .btn:hover {
+            background: var(--accent-dark);
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 var(--border);
+        }
+        
+        /* Blockquote */
+        blockquote {
+            border: 2px solid var(--border);
+            border-left-width: 8px;
+            border-left-color: var(--accent);
+            padding: 20px;
+            margin: 25px 0;
+            background: var(--bg-secondary);
+        }
+        
+        /* Footer */
+        footer {
+            margin-top: 60px;
+            padding: 30px;
+            border: 3px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+        }
+        
+        footer a {
+            color: var(--text);
+            font-weight: 700;
+        }
+        
+        /* Nav pills */
+        .nav-pills {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .nav-pill {
+            background: var(--bg);
+            border: 2px solid var(--border);
+            padding: 8px 16px;
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .nav-pill:hover {
+            background: var(--accent);
+        }
+        
+        @media (max-width: 600px) {
+            h1 { font-size: 1.5rem; }
+            pre { font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>OpenClaw Master Guide</h1>
+            <p class="subtitle">Build 5+ Production AI Agents in 30 Days — No Coding Required</p>
+            <p class="byline">Written by Tim Pittman — Senior Director of Customer Success</p>
+        </header>
+        
+        <nav class="nav-pills">
+            <a href="#intro" class="nav-pill">Intro</a>
+            <a href="#setup" class="nav-pill">Setup</a>
+            <a href="#agents" class="nav-pill">Agents</a>
+            <a href="#cs" class="nav-pill">CS Automation</a>
+            <a href="#revenue" class="nav-pill">Revenue</a>
+            <a href="#advanced" class="nav-pill">Advanced</a>
+        </nav>
+        
+        <div class="box-accent">
+            <h3>You Don't Need to Be Technical. You Just Need to Be Willing.</h3>
+            <p>AI agents aren't just for engineers anymore. OpenClaw lets you build powerful automation without writing a single line of code.</p>
+            <p><strong>If you can use Slack, you can build an AI agent.</strong></p>
+            <p>This guide walks you through it step-by-step — no technical background required.</p>
+        </div>
+        
+        <section id="intro">
+            <h2>// WHY THIS GUIDE?</h2>
+            
+            <p>You're busy. You don't have time to learn programming just to automate your work. But you also don't want to feel left behind as AI transforms everything.</p>
+            
+            <p><strong>Here's the thing:</strong> You don't need to understand how AI works under the hood. You just need to know how to use it.</p>
+            
+            <p>This guide is for you if:</p>
+            
+            <ul>
+                <li>You're overwhelmed with manual tasks that eat your day</li>
+                <li>You've tried AI tools but felt lost or overwhelmed</li>
+                <li>You want to work smarter, not harder</li>
+                <li>You don't want to feel left behind by the AI revolution</li>
+            </ul>
+            
+            <p><strong>OpenClaw makes AI accessible.</strong> It's designed for busy professionals like you — not engineers.</p>
+            
+            <p>In this guide, I'll show you exactly how to set up AI agents that work for you, even if you've never written code.</p>
+        </section>
+        
+        <section id="setup">
+            <h2>// WHAT IS OPENCLAW?</h2>
+            
+            <p>OpenClaw is an open-source AI assistant framework that runs locally on your machine. Think of it as having a digital chief of staff that:</p>
+            
+            <ul>
+                <li>Lives in your messaging apps (Telegram, Slack, WhatsApp)</li>
+                <li>Can access your files, calendar, and data</li>
+                <li>Executes tasks on your behalf</li>
+                <li>Remembers context across conversations</li>
+            </ul>
+            
+            <p><strong>It's not a chatbot. It's an autonomous agent that works when you don't.</strong></p>
+            
+            <div class="box">
+                <h3>What OpenClaw Is NOT</h3>
+                <ul>
+                    <li>Not a SaaS subscription you rent</li>
+                    <li>Not a black box you can't inspect</li>
+                    <li>Not just for developers</li>
+                </ul>
+            </div>
+            
+            <div class="box">
+                <h3>What OpenClaw IS</h3>
+                <ul>
+                    <li>Open source (you own it)</li>
+                    <li>Runs locally (your data stays yours)</li>
+                    <li>Customizable to YOUR workflows</li>
+                    <li>Free to run (just pay for API tokens)</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section>
+            <h2>// MODULE 1: FOUNDATION</h2>
+            
+            <h3>Goal: Get OpenClaw running + your first working agent</h3>
+            
+            <h3 id="installation">Step 1: Installation & Setup</h3>
+            
+            <p>OpenClaw runs on Mac, Linux, or Raspberry Pi. Here's the quickstart:</p>
+            
+            <pre><code># Clone the repo
+git clone https://github.com/openclaw/openclaw.git
+cd openclaw
+
+# Install dependencies
+npm install
+
+# Run the setup
+npm run setup</code></pre>
+            
+            <h3>Step 2: Understanding Agents vs Sub-Agents</h3>
+            
+            <p><strong>Agents</strong> = Independent workers with their own personality and memory<br>
+            <strong>Sub-Agents</strong> = Task-specific helpers spawned by your main agent</p>
+            
+            <p>Think of it like:</p>
+            <ul>
+                <li>Agent = Your employee</li>
+                <li>Sub-Agent = A contractor you hire for one specific job</li>
+            </ul>
+            
+            <h3>Step 3: Your First Agent — Daily Briefing</h3>
+            
+            <p>This is the simplest starting point. Your agent sends you a daily summary of what matters.</p>
+            
+            <p><strong>The prompt (copy and paste this):</strong></p>
+            
+            <blockquote>
+                <p>You are my Personal AI Assistant. Every morning at 8am, review my calendar, tasks, and any important updates. Then provide a brief, actionable summary covering:</p>
+                <ol>
+                    <li>Top 3 priorities for today</li>
+                    <li>Any meetings that need preparation</li>
+                    <li>Follow-ups or replies I might be missing</li>
+                </ol>
+                <p>Keep it short, clear, and actionable. Format as a bullet list.</p>
+            </blockquote>
+            
+            <p>That's it. Paste that into your agent's configuration, and every morning you'll wake up to a personalized briefing. No coding required.</p>
+            
+            <h3>Step 4: Workspace Organization</h3>
+            
+            <p>OpenClaw uses a workspace with personality files:</p>
+            
+            <ul>
+                <li><strong>SOUL.md</strong> — Who the agent is (personality, values)</li>
+                <li><strong>USER.md</strong> — Who you are (preferences, context)</li>
+                <li><strong>MEMORY.md</strong> — Long-term memory</li>
+                <li><strong>memory/</strong> — Daily logs</li>
+            </ul>
+            
+            <h3>Step 5: Model Selection</h3>
+            
+            <p>OpenClaw supports multiple models. Here's the cheat sheet:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Use Case</th>
+                        <th>Model</th>
+                        <th>Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Quick tasks, reminders</td>
+                        <td>GPT-4o Mini</td>
+                        <td>$0.15/1M tokens</td>
+                    </tr>
+                    <tr>
+                        <td>Complex reasoning</td>
+                        <td>Sonnet 3.5</td>
+                        <td>$3/1M tokens</td>
+                    </tr>
+                    <tr>
+                        <td>Best quality</td>
+                        <td>GPT-4o</td>
+                        <td>$15/1M tokens</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p><strong>Pro tip:</strong> Start cheap, upgrade only when needed.</p>
+        </section>
+        
+        <section id="cs">
+            <h2>// MODULE 2: CS AUTOMATION</h2>
+            
+            <h3>Goal: Build agents that prevent churn</h3>
+            
+            <h3>Use Case 1: Weekly At-Risk Customer Check-Ins</h3>
+            
+            <p>This agent proactively reaches out to customers showing warning signs.</p>
+            
+            <p><strong>Setup:</strong></p>
+            <ol>
+                <li>Define your "at-risk" criteria (health score, NPS drop, support volume)</li>
+                <li>Connect to your CRM (Salesforce, HubSpot, Gainsight)</li>
+                <li>Set up weekly cron job</li>
+                <li>Agent generates personalized outreach</li>
+            </ol>
+            
+            <h3>Use Case 2: Renewal Reminder Automation</h3>
+            
+            <p>Never miss a renewal again. This agent tracks:</p>
+            <ul>
+                <li><strong>90-day warning:</strong> Strategic review scheduled</li>
+                <li><strong>60-day warning:</strong> Proposal in progress</li>
+                <li><strong>30-day warning:</strong> Contract ready</li>
+                <li><strong>7-day warning:</strong> Final push</li>
+            </ul>
+            
+            <h3>Use Case 3: Escalation Monitoring</h3>
+            
+            <p>Pull data from Zendesk, Intercom, or your support desk. Alert you when:</p>
+            <ul>
+                <li>Customer creates high-priority ticket</li>
+                <li>Ticket response time exceeds SLA</li>
+                <li>Customer mentions "churn" or "cancel"</li>
+            </ul>
+            
+            <h3>Use Case 4: Customer Health Score Tracking</h3>
+            
+            <p>Build a composite health score from multiple signals:</p>
+            <ul>
+                <li>Product usage frequency</li>
+                <li>NPS score</li>
+                <li>Support ticket volume</li>
+                <li>Feature adoption</li>
+                <li>Payment history</li>
+            </ul>
+            
+            <p>Your agent updates this daily and flags changes.</p>
+            
+            <h3>Template: Customer Success Agent SOUL.md</h3>
+            
+            <pre><code># CS Agent SOUL
+
+## Persona
+You are a proactive Customer Success partner. 
+You care about our customers' success.
+
+## Values
+- Prevent churn before it happens
+- Always look for expansion opportunities
+- Be helpful, not pushy
+- Data-driven decisions
+
+## Behavior
+- Start conversations with actionable insights
+- Always include next steps
+- Escalate early when something feels off</code></pre>
+        </section>
+        
+        <section id="revenue">
+            <h2>// MODULE 3: REVENUE WORKFLOWS</h2>
+            
+            <h3>Goal: Build agents that drive pipeline velocity</h3>
+            
+            <h3>Use Case 1: Daily Pipeline Review Agent</h3>
+            
+            <p>Every morning, get a digest of:</p>
+            <ul>
+                <li>Deals moved to negotiation</li>
+                <li>Deals stalled > 2 weeks</li>
+                <li>Deals with no activity in 30 days</li>
+                <li>Deals closing this month/quarter</li>
+            </ul>
+            
+            <h3>Use Case 2: Lead Enrichment Automation</h3>
+            
+            <p>When a new lead comes in, your agent:</p>
+            <ol>
+                <li>Pulls LinkedIn profile</li>
+                <li>Finds company news</li>
+                <li>Checks for mutual connections</li>
+                <li>Generates personalized first-touch email</li>
+            </ol>
+            
+            <h3>Use Case 3: Deal Stage Alerts</h3>
+            
+            <p>Connect to Slack/Telegram. Get instant notifications when:</p>
+            <ul>
+                <li>Deal moves to closed-won</li>
+                <li>Deal moves to closed-lost</li>
+                <li>Deal stalls</li>
+                <li>Big deal enters pipeline</li>
+            </ul>
+            
+            <h3>Use Case 4: Competitive Intel Monitoring</h3>
+            
+            <p>Your agent scrapes X, Reddit, and news for competitor mentions:</p>
+            <ul>
+                <li>Competitor launches</li>
+                <li>Competitor news</li>
+                <li>Customer complaints about competitors</li>
+                <li>Opportunities to win</li>
+            </ul>
+        </section>
+        
+        <section id="advanced">
+            <h2>// MODULE 4: ADVANCED PATTERNS</h2>
+            
+            <h3>Goal: Multi-agent orchestration + custom workflows</h3>
+            
+            <h3>Sub-Agent Architecture</h3>
+            
+            <p>When to spawn a sub-agent vs. direct execution:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Task Type</th>
+                        <th>Approach</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Quick one-off (lookup, format)</td>
+                        <td>Direct execution</td>
+                    </tr>
+                    <tr>
+                        <td>Complex multi-step</td>
+                        <td>Sub-agent</td>
+                    </tr>
+                    <tr>
+                        <td>Specialized skill</td>
+                        <td>Sub-agent</td>
+                    </tr>
+                    <tr>
+                        <td>Ongoing role</td>
+                        <td>Full agent</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Memory Management</h3>
+            
+            <ul>
+                <li><strong>Short-term:</strong> Conversation context (resets each session)</li>
+                <li><strong>Medium-term:</strong> Daily memory files</li>
+                <li><strong>Long-term:</strong> MEMORY.md for persistent knowledge</li>
+            </ul>
+            
+            <h3>Building Custom Skills</h3>
+            
+            <p>Skills are reusable tool sets. Example: A "weather" skill that fetches forecasts.</p>
+            
+            <h3>Cost Management</h3>
+            
+            <ul>
+                <li>Set usage alerts</li>
+                <li>Use cheaper models for simple tasks</li>
+                <li>Cache repetitive lookups</li>
+                <li>Review weekly token usage</li>
+            </ul>
+            
+            <h3>Security Best Practices</h3>
+            
+            <ul>
+                <li>Never expose API keys in prompts</li>
+                <li>Run locally — data stays on your machine</li>
+                <li>Use environment variables for secrets</li>
+                <li>Review agent outputs before sending externally</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>// WHAT'S NEXT?</h2>
+            
+            <p>This guide is your starting point. To go deeper:</p>
+            
+            <ol>
+                <li><strong>Join the OpenClaw community</strong> — discord.gg/openclaw</li>
+                <li><strong>Get the full course</strong> — More modules, templates, video walkthroughs</li>
+                <li><strong>Build your first agent</strong> — Start with the check-in reminder above</li>
+            </ol>
+            
+            <div class="box-accent" style="text-align: center;">
+                <h3>Want to accelerate?</h3>
+                <p>I'm building a full master course with video walkthroughs, copy-paste templates, and private community access.</p>
+                <p style="margin-top: 20px;">
+                    <a href="#" class="btn">Join the Waitlist →</a>
+                </p>
+            </div>
+        </section>
+        
+        <footer>
+            <p>Built something cool? Let me know — <a href="https://x.com">@tim</a> on X</p>
+            <p style="margin-top: 10px;">© 2025 Tim Pittman. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
