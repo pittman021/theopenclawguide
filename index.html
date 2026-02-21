@@ -253,6 +253,22 @@
             font-size: 0.9rem;
         }
         
+        /* Video embed */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            margin: 25px 0;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
         @media (max-width: 600px) {
             h1 { font-size: 1.5rem; }
             pre { font-size: 0.8rem; }
@@ -272,11 +288,10 @@
             <a href="#what-youll-learn" class="nav-pill">What You'll Learn</a>
             <a href="#setup" class="nav-pill">Setup</a>
             <a href="#models" class="nav-pill">Models</a>
-            <a href="#soul-structure" class="nav-pill">SOUL Structure</a>
+            <a href="#soul" class="nav-pill">SOUL</a>
             <a href="#memory" class="nav-pill">Memory</a>
             <a href="#skills" class="nav-pill">Skills</a>
             <a href="#advanced" class="nav-pill">Advanced</a>
-            <a href="#brain-expansion" class="nav-pill">Brain Expansion</a>
         </nav>
         
         <div class="box-accent">
@@ -289,8 +304,8 @@
         <section id="intro">
             <h2>// WHY THIS GUIDE?</h2>
             
-            <div style="position: relative; padding-bottom: 56.25%; height: 0; margin: 25px 0;">
-                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+            <div class="video-container">
+                <iframe 
                     src="https://www.youtube.com/embed/fii5RCHs3eQ?si=68v1A--UtaLIATzb" 
                     title="YouTube video player" 
                     frameborder="0" 
@@ -350,45 +365,12 @@
         </section>
         
         <section id="setup">
-            <h2>// WHAT IS OPENCLAW?</h2>
+            <h2>// SECTION 1: SETUP</h2>
+            <h3>How to Setup Your AI Agent in 30 Minutes</h3>
             
-            <p>OpenClaw is an open-source AI assistant framework that runs locally on your machine. Think of it as having a digital chief of staff that:</p>
+            <p>Let's get OpenClaw running on your machine. We'll cover installation, dashboard navigation, and sending your first command.</p>
             
-            <ul>
-                <li>Lives in your messaging apps (Telegram, Slack, WhatsApp)</li>
-                <li>Can access your files, calendar, and data</li>
-                <li>Executes tasks on your behalf</li>
-                <li>Remembers context across conversations</li>
-            </ul>
-            
-            <p><strong>It's not a chatbot. It's an autonomous agent that works when you don't.</strong></p>
-            
-            <div class="box">
-                <h3>What OpenClaw Is NOT</h3>
-                <ul>
-                    <li>Not a SaaS subscription you rent</li>
-                    <li>Not a black box you can't inspect</li>
-                    <li>Not just for developers</li>
-                </ul>
-            </div>
-            
-            <div class="box">
-                <h3>What OpenClaw IS</h3>
-                <ul>
-                    <li>Open source (you own it)</li>
-                    <li>Runs locally (your data stays yours)</li>
-                    <li>Customizable to YOUR workflows</li>
-                    <li>Free to run (just pay for API tokens)</li>
-                </ul>
-            </div>
-        </section>
-        
-        <section>
-            <h2>// MODULE 1: FOUNDATION</h2>
-            
-            <h3>Goal: Get OpenClaw running + your first working agent</h3>
-            
-            <h3 id="installation">Step 1: Installation & Setup</h3>
+            <h3>Installation</h3>
             
             <p>OpenClaw runs on Mac, Linux, or Raspberry Pi. Here's the quickstart:</p>
             
@@ -402,22 +384,58 @@ npm install
 # Run the setup
 npm run setup</code></pre>
             
-            <h3>Step 2: Understanding Agents vs Sub-Agents</h3>
+            <h3>Connect Your Messaging App</h3>
             
-            <p><strong>Agents</strong> = Independent workers with their own personality and memory<br>
-            <strong>Sub-Agents</strong> = Task-specific helpers spawned by your main agent</p>
+            <p>OpenClaw lives in your messaging apps. Here's how to connect:</p>
             
-            <p>Think of it like:</p>
+            <h4>Telegram</h4>
+            <ol>
+                <li>Message @BotFather on Telegram</li>
+                <li>Create a new bot with /newbot</li>
+                <li>Copy your API token</li>
+                <li>Add it to your OpenClaw config</li>
+            </ol>
+            
+            <h4>Slack</h4>
+            <ol>
+                <li>Go to Slack API → Create App</li>
+                <li>Enable Bot Token Scope</li>
+                <li>Install to your workspace</li>
+                <li>Copy Bot User OAuth Token</li>
+            </ol>
+            
+            <h4>WhatsApp</h4>
+            <ol>
+                <li>OpenClaw supports WhatsApp Business API</li>
+                <li>Connect via QR code scanning</li>
+                <li>Follow the in-app setup wizard</li>
+            </ol>
+            
+            <h3>Navigate the Dashboard</h3>
+            
+            <p>Once running, your dashboard shows:</p>
             <ul>
-                <li>Agent = Your employee</li>
-                <li>Sub-Agent = A contractor you hire for one specific job</li>
+                <li><strong>Agents:</strong> Your active AI agents</li>
+                <li><strong>Skills:</strong> Available capabilities</li>
+                <li><strong>Memory:</strong> Conversation history</li>
+                <li><strong>Settings:</strong> Configuration options</li>
             </ul>
             
-            <h3>Step 3: Your First Agent — Daily Briefing</h3>
+            <h3>Send Your First Command</h3>
             
-            <p>This is the simplest starting point. Your agent sends you a daily summary of what matters.</p>
+            <p>Open your messaging app and try:</p>
             
-            <p><strong>The prompt (copy and paste this):</strong></p>
+            <blockquote>
+                <p>"Hey, what's the weather today?"</p>
+            </blockquote>
+            
+            <p>Your agent is now live and responding!</p>
+            
+            <h3>Your First Agent — Daily Briefing</h3>
+            
+            <p>Let's create your first useful agent. It'll send you a daily summary every morning.</p>
+            
+            <p><strong>The prompt (copy and paste):</strong></p>
             
             <blockquote>
                 <p>You are my Personal AI Assistant. Every morning at 8am, review my calendar, tasks, and any important updates. Then provide a brief, actionable summary covering:</p>
@@ -429,59 +447,26 @@ npm run setup</code></pre>
                 <p>Keep it short, clear, and actionable. Format as a bullet list.</p>
             </blockquote>
             
-            <p>That's it. Paste that into your agent's configuration, and every morning you'll wake up to a personalized briefing. No coding required.</p>
+            <p>That's it. Every morning you'll wake up to a personalized briefing. No coding required.</p>
             
-            <h3>Step 4: Workspace Organization</h3>
+            <h3>Understanding Agents vs Sub-Agents</h3>
             
-            <p>OpenClaw uses a workspace with personality files:</p>
+            <p><strong>Agents</strong> = Independent workers with their own personality and memory<br>
+            <strong>Sub-Agents</strong> = Task-specific helpers spawned by your main agent</p>
             
+            <p>Think of it like:</p>
             <ul>
-                <li><strong>SOUL.md</strong> — Who the agent is (personality, values)</li>
-                <li><strong>USER.md</strong> — Who you are (preferences, context)</li>
-                <li><strong>MEMORY.md</strong> — Long-term memory</li>
-                <li><strong>memory/</strong> — Daily logs</li>
+                <li>Agent = Your employee</li>
+                <li>Sub-Agent = A contractor you hire for one specific job</li>
             </ul>
-            
-            <h3>Step 5: Model Selection</h3>
-            
-            <p>OpenClaw supports multiple models. Here's the cheat sheet:</p>
-            
-            <table>
-                <thead>
-                    <tr>
-                        <th>Use Case</th>
-                        <th>Model</th>
-                        <th>Cost</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Quick tasks, reminders</td>
-                        <td>GPT-4o Mini</td>
-                        <td>$0.15/1M tokens</td>
-                    </tr>
-                    <tr>
-                        <td>Complex reasoning</td>
-                        <td>Sonnet 3.5</td>
-                        <td>$3/1M tokens</td>
-                    </tr>
-                    <tr>
-                        <td>Best quality</td>
-                        <td>GPT-4o</td>
-                        <td>$15/1M tokens</td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <p><strong>Pro tip:</strong> Start cheap, upgrade only when needed.</p>
         </section>
         
         <section id="models">
-            <h2>// UNDERSTANDING MODELS</h2>
+            <h2>// SECTION 2: UNDERSTANDING MODELS</h2>
             
-            <h3>Goal: Choose the right model for the right task</h3>
+            <h3>Choose the right model for the right task</h3>
             
-            <p>One of OpenClaw's superpowers is that you can switch between different AI models depending on what you need. Here's how to think about it:</p>
+            <p>One of OpenClaw's superpowers is switching between AI models depending on what you need.</p>
             
             <h3>Model Providers</h3>
             
@@ -541,10 +526,10 @@ npm run setup</code></pre>
             </ul>
         </section>
         
-        <section id="soul-structure">
-            <h2>// SOUL FILE STRUCTURE</h2>
+        <section id="soul">
+            <h2>// SECTION 3: BUILDING YOUR BOT'S SOUL</h2>
             
-            <h3>Goal: Understand and customize your agent's identity</h3>
+            <h3>Understand and customize your agent's identity</h3>
             
             <p>This is where most people get stuck. The docs don't explain it well, so here's the deep dive.</p>
             
@@ -599,9 +584,9 @@ npm run setup</code></pre>
         </section>
         
         <section id="memory">
-            <h2>// MEMORY & CONTEXT</h2>
+            <h2>// SECTION 4: MEMORY & CONTEXT</h2>
             
-            <h3>Goal: Ensure your agent remembers across sessions</h3>
+            <h3>Ensure your agent remembers across sessions</h3>
             
             <p>This is critical. Without proper memory setup, your agent forgets everything between sessions.</p>
             
@@ -654,9 +639,9 @@ npm run setup</code></pre>
         </section>
         
         <section id="skills">
-            <h2>// SKILLS</h2>
+            <h2>// SECTION 5: SKILLS</h2>
             
-            <h3>Goal: Learn how to use and create skills</h3>
+            <h3>Learn how to use and create skills</h3>
             
             <p>Skills are reusable tool sets that give your agent new capabilities.</p>
             
@@ -709,87 +694,10 @@ Brief description of the skill's purpose
             </ul>
         </section>
         
-        <section id="email-cleanup">
-            <h2>// USE CASE: EMAIL CLEANUP</h2>
-            
-            <h3>Goal: Archive and delete thousands of emails in bulk</h3>
-            
-            <p>Got thousands of emails piling up? An agent can help you organize, archive, and delete in bulk — way faster than manual.</p>
-            
-            <h3>What This Agent Does</h3>
-            
-            <ul>
-                <li><strong>Scan</strong> your inbox for old/unwanted emails</li>
-                <li><strong>Categorize</strong> by sender, age, subject</li>
-                <li><strong>Archive</strong> to storage folder (keep for records)</li>
-                <li><strong>Delete</strong> trash with your approval</li>
-                <li><strong>Report</strong> what it did (emails archived, space freed)</li>
-            </ul>
-            
-            <h3>Setup</h3>
-            
-            <div class="box">
-                <h3>Email Agent SOUL</h3>
-                <pre><code># Email Cleanup Agent
-
-## Persona
-You are a meticulous email organizer.
-
-## Rules
-- Always ask before deleting
-- Archive instead of delete when uncertain
-- Report space savings
-
-## Capabilities
-- List emails by age, sender, label
-- Archive in bulk
-- Delete in bulk (with approval)</code></pre>
-            </div>
-            
-            <h3>Email Provider Setup</h3>
-            
-            <table>
-                <thead>
-                    <tr>
-                        <th>Provider</th>
-                        <th>Method</th>
-                        <th>Notes</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Gmail</td>
-                        <td>Gmail API</td>
-                        <td>Need OAuth setup</td>
-                    </tr>
-                    <tr>
-                        <td>Outlook</td>
-                        <td>Microsoft Graph API</td>
-                        <td>Need OAuth setup</td>
-                    </tr>
-                    <tr>
-                        <td>Apple Mail</td>
-                        <td>Local access</td>
-                        <td>Easiest on Mac</td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <h3>Workflow</h3>
-            
-            <ol>
-                <li><strong>Ask:</strong> "Clean up emails older than 2 years from Newsletter senders"</li>
-                <li><strong>Agent scans:</strong> Finds 3,400 matching emails</li>
-                <li><strong>Agent shows:</strong> "Found 3,400 emails. Archive or delete?"</li>
-                <li><strong>You approve:</strong> "Archive them"</li>
-                <li><strong>Agent does it:</strong> Archives all, reports "Freed 230MB"</li>
-            </ol>
-        </section>
-        
         <section id="advanced">
             <h2>// ADVANCED PATTERNS</h2>
             
-            <h3>Goal: Multi-agent orchestration + custom workflows</h3>
+            <h3>Multi-agent orchestration + custom workflows</h3>
             
             <h3>Sub-Agent Architecture</h3>
             
@@ -822,13 +730,14 @@ You are a meticulous email organizer.
                 </tbody>
             </table>
             
-            <h3>Cost Management</h3>
+            <h3>Expanding Your Agent's Brain</h3>
+            
+            <p>Connect your agent to your existing knowledge base:</p>
             
             <ul>
-                <li>Set usage alerts</li>
-                <li>Use cheaper models for simple tasks</li>
-                <li>Cache repetitive lookups</li>
-                <li>Review weekly token usage</li>
+                <li><strong>Obsidian:</strong> Long-term knowledge, projects, meeting notes</li>
+                <li><strong>Notion:</strong> Structured data via API</li>
+                <li><strong>Apple Notes:</strong> Via built-in skill</li>
             </ul>
             
             <h3>Security Best Practices</h3>
@@ -838,35 +747,6 @@ You are a meticulous email organizer.
                 <li>Run locally — data stays on your machine</li>
                 <li>Use environment variables for secrets</li>
                 <li>Review agent outputs before sending externally</li>
-            </ul>
-        </section>
-        
-        <section id="brain-expansion">
-            <h2>// EXPANDING YOUR AGENT'S BRAIN</h2>
-            
-            <h3>Goal: Connect your second brain for persistent knowledge</h3>
-            
-            <p>Your agent's memory is powerful, but it's even better when it can access your existing knowledge base.</p>
-            
-            <h3>Option 1: Obsidian (Recommended)</h3>
-            
-            <p>Obsidian is a markdown-based note-taking app that stores plain text files. Perfect for AI access.</p>
-            
-            <h3>Option 2: Notion</h3>
-            
-            <p>Notion is great for structured data. Use the API to connect.</p>
-            
-            <h3>Option 3: Apple Notes</h3>
-            
-            <p>Already using Notes? OpenClaw can read from Apple Notes via the skill.</p>
-            
-            <h3>The Hybrid Approach</h3>
-            
-            <ul>
-                <li><strong>Obsidian:</strong> Long-term knowledge, projects, meeting notes</li>
-                <li><strong>OpenClaw memory/:</strong> Agent-specific daily logs</li>
-                <li><strong>MEMORY.md:</strong> Consolidated context summary</li>
-                <li><strong>BRAIN.md:</strong> Active projects and action items</li>
             </ul>
         </section>
         
