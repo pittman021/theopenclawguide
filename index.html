@@ -207,26 +207,169 @@
             font-weight: 700;
         }
         
-        /* Nav pills */
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Progress bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: var(--accent);
+            z-index: 1000;
+            transition: width 0.3s ease;
+        }
+        
+        /* Sticky nav */
         .nav-pills {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
             margin-bottom: 30px;
+            position: sticky;
+            top: 0;
+            background: var(--bg);
+            padding: 15px 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-light);
         }
         
         .nav-pill {
             background: var(--bg);
             border: 2px solid var(--border);
-            padding: 8px 16px;
+            padding: 6px 12px;
             text-decoration: none;
             color: var(--text);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
+            transition: all 0.2s ease;
         }
         
-        .nav-pill:hover {
+        .nav-pill:hover, .nav-pill.active {
             background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 3px 3px 0 var(--border);
+        }
+        
+        /* Hero section */
+        .hero {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
+            border: 3px solid var(--border);
+            box-shadow: 8px 8px 0 var(--border);
+        }
+        
+        .hero-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: block;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            background: var(--text);
+            color: var(--bg);
+            padding: 14px 28px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            border: 3px solid var(--border);
+            box-shadow: 4px 4px 0 var(--accent);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 var(--accent);
+        }
+        
+        .btn-secondary {
+            display: inline-block;
+            background: var(--bg);
+            color: var(--text);
+            padding: 14px 28px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            border: 3px solid var(--border);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--accent);
+            transform: translate(2px, 2px);
+        }
+        
+        /* Module badges */
+        .module-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--text);
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: 2px solid var(--border);
+            margin-bottom: 10px;
+        }
+        
+        /* Section intro */
+        .section-intro {
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .section-intro h3 {
+            margin-top: 0;
+        }
+        
+        /* Key points callout */
+        .key-points {
+            background: #fff9e6;
+            border: 2px solid var(--accent);
+            padding: 20px;
+            margin: 25px 0;
+        }
+        
+        .key-points h4 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
         }
         
         @media (max-width: 600px) {
@@ -236,29 +379,43 @@
     </style>
 </head>
 <body>
+    <div class="progress-bar" id="progressBar"></div>
     <div class="container">
-        <header>
+        <div class="hero">
+            <span class="hero-icon">🤖</span>
             <h1>OpenClaw Master Guide</h1>
             <p class="subtitle">Build 5+ Production AI Agents in 30 Days — No Coding Required</p>
             <p class="byline">Written by Tim Pittman — Senior Director of Customer Success</p>
-        </header>
+            <div class="hero-cta">
+                <a href="#setup" class="btn-primary">Start Building →</a>
+                <a href="#intro" class="btn-secondary">Learn More</a>
+            </div>
+        </div>
         
         <nav class="nav-pills">
             <a href="#intro" class="nav-pill">Intro</a>
             <a href="#setup" class="nav-pill">Setup</a>
-            <a href="#agents" class="nav-pill">Agents</a>
             <a href="#cs" class="nav-pill">CS Automation</a>
             <a href="#revenue" class="nav-pill">Revenue</a>
+            <a href="#troubleshooting" class="nav-pill">Troubleshoot</a>
+            <a href="#monitoring" class="nav-pill">Monitoring</a>
+            <a href="#cost" class="nav-pill">Costs</a>
+            <a href="#case-studies" class="nav-pill">Case Studies</a>
+            <a href="#skills" class="nav-pill">Skills</a>
+            <a href="#voice" class="nav-pill">Voice</a>
+            <a href="#browser" class="nav-pill">Browser</a>
             <a href="#templates" class="nav-pill">Templates</a>
-            <a href="#integrations" class="nav-pill">Integrations</a>
             <a href="#security" class="nav-pill">Security</a>
         </nav>
         
-        <div class="box-accent">
-            <h3>You Don't Need to Be Technical. You Just Need to Be Willing.</h3>
-            <p>AI agents aren't just for engineers anymore. OpenClaw lets you build powerful automation without writing a single line of code.</p>
-            <p><strong>If you can use Slack, you can build an AI agent.</strong></p>
-            <p>This guide walks you through it step-by-step — no technical background required.</p>
+        <div class="key-points">
+            <h4>💡 What You'll Learn</h4>
+            <ul>
+                <li>Set up your first AI agent in under 30 minutes</li>
+                <li>Automate Customer Success workflows to prevent churn</li>
+                <li>Build revenue-generating automation pipelines</li>
+                <li>Monitor, debug, and scale your agents like a pro</li>
+            </ul>
         </div>
         
         <!-- Email Signup -->
@@ -298,6 +455,7 @@
         </section>
         
         <section id="setup">
+            <span class="module-badge">Module 1</span>
             <h2>// WHAT IS OPENCLAW?</h2>
             
             <p>OpenClaw is an open-source AI assistant framework that runs locally on your machine. Think of it as having a digital chief of staff that:</p>
@@ -425,7 +583,8 @@ npm run setup</code></pre>
         </section>
         
         <section id="cs">
-            <h2>// MODULE 2: CS AUTOMATION</h2>
+            <span class="module-badge">Module 2</span>
+            <h2>// CS AUTOMATION</h2>
             
             <h3>Goal: Build agents that prevent churn</h3>
             
@@ -494,7 +653,8 @@ You care about our customers' success.
         </section>
         
         <section id="revenue">
-            <h2>// MODULE 3: REVENUE WORKFLOWS</h2>
+            <span class="module-badge">Module 3</span>
+            <h2>// REVENUE WORKFLOWS</h2>
             
             <h3>Goal: Build agents that drive pipeline velocity</h3>
             
@@ -540,7 +700,8 @@ You care about our customers' success.
         </section>
         
         <section id="advanced">
-            <h2>// MODULE 4: ADVANCED PATTERNS</h2>
+            <span class="module-badge">Module 4</span>
+            <h2>// ADVANCED PATTERNS</h2>
             
             <h3>Goal: Multi-agent orchestration + custom workflows</h3>
             
@@ -606,10 +767,456 @@ You care about our customers' success.
             </ul>
         </section>
         
+        <section id="troubleshooting">
+            <h2>// TROUBLESHOOTING & DEBUGGING</h2>
+            
+            <h3>Why Isn't My Agent Responding?</h3>
+            
+            <p>When your agent goes silent or behaves unexpectedly, here's the debugging checklist:</p>
+            
+            <ol>
+                <li><strong>Check the logs</strong> — Run <code>openclaw status</code> to see what's happening</li>
+                <li><strong>Verify API keys</strong> — Expired or invalid keys are the #1 cause of failures</li>
+                <li><strong>Test the model</strong> — Try a direct API call to verify connectivity</li>
+                <li><strong>Check memory</strong> — Corrupted memory files can cause weird behavior</li>
+            </ol>
+            
+            <h3>Common Issues & Fixes</h3>
+            
+            <div class="box">
+                <h3>Agent Repeats Itself</h3>
+                <p><strong>Cause:</strong> Short context window or looping memory</p>
+                <p><strong>Fix:</strong> Clear conversation history, reduce conversation turns, or switch to a model with larger context</p>
+            </div>
+            
+            <div class="box">
+                <h3>Agent Ignores Instructions</h3>
+                <p><strong>Cause:</strong> Instructions buried in long prompts</p>
+                <p><strong>Fix:</strong> Put core instructions at the start of the prompt. Use clear headings.</p>
+            </div>
+            
+            <div class="box">
+                <h3>API Errors or Timeouts</h3>
+                <p><strong>Cause:</strong> Rate limits, network issues, or provider outages</p>
+                <p><strong>Fix:</strong> Add retry logic, implement fallback models, check provider status pages</p>
+            </div>
+            
+            <div class="box">
+                <h3>Memory Bloat</h3>
+                <p><strong>Cause:</strong> Memory files growing unbounded</p>
+                <p><strong>Fix:</strong> Implement memory pruning. Archive old entries, keep only last 30 days in active memory</p>
+            </div>
+            
+            <h3>Debug Mode</h3>
+            
+            <p>Enable verbose logging to see exactly what your agent is thinking:</p>
+            
+            <pre><code>openclaw debug on
+# Run your command
+# Review detailed logs</code></pre>
+            
+            <h3>Testing Prompts Before Production</h3>
+            
+            <ul>
+                <li>Test with edge cases (empty input, bad data, unexpected formats)</li>
+                <li>Run 5-10 test conversations before deploying</li>
+                <li>Use a separate test channel before connecting to real messaging platforms</li>
+                <li>Log outputs for 24-48 hours to catch subtle issues</li>
+            </ul>
+        </section>
+        
+        <section id="monitoring">
+            <h2>// MONITORING & HEALTHCHECKS</h2>
+            
+            <p>Your agents need supervision. Here's how to keep them honest.</p>
+            
+            <h3>Setting Up Healthchecks</h3>
+            
+            <p>OpenClaw supports cron-based healthchecks. Run these checks periodically:</p>
+            
+            <pre><code># Add to your crontab
+0 9 * * * /usr/local/bin/openclaw healthcheck --notify</code></pre>
+            
+            <h3>What to Monitor</h3>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Why It Matters</th>
+                        <th>Alert Threshold</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Token usage</td>
+                        <td>Catch runaway spending</td>
+                        <td>> 2x daily average</td>
+                    </tr>
+                    <tr>
+                        <td>Response time</td>
+                        <td>Agent may be stuck</td>
+                        <td>> 30 seconds</td>
+                    </tr>
+                    <tr>
+                        <td>Error rate</td>
+                        <td>API or config issues</td>
+                        <td>> 5% of requests</td>
+                    </tr>
+                    <tr>
+                        <td>Memory size</td>
+                        <td>Disk bloat, performance</td>
+                        <td>> 100MB</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Alert Channels</h3>
+            
+            <p>Configure alerts to go where you'll actually see them:</p>
+            <ul>
+                <li><strong>Telegram/Signal</strong> — Fast, personal</li>
+                <li><strong>Slack</strong> — Team visibility</li>
+                <li><strong>Email</strong> — For critical failures only</li>
+            </ul>
+            
+            <h3>Weekly Audit Routine</h3>
+            
+            <p>Set aside 15 minutes weekly to:</p>
+            <ol>
+                <li>Review token usage reports</li>
+                <li>Check agent conversation logs for drift</li>
+                <li>Verify integrations are still connected</li>
+                <li>Archive or prune old memory files</li>
+            </ol>
+            
+            <div class="box">
+                <h3>Pro Tip: Shadow Mode</h3>
+                <p>Run new agents in shadow mode — they suggest actions but don't execute them. Review their outputs for 1-2 weeks before enabling full autonomy.</p>
+            </div>
+        </section>
+        
+        <section id="cost">
+            <h2>// COST MODELING</h2>
+            
+            <p>Running AI agents costs money. Here's how to model and manage your spend.</p>
+            
+            <h3>Understanding Token Costs</h3>
+            
+            <p>Most providers charge per million tokens (input + output combined).</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>Input / 1M tokens</th>
+                        <th>Output / 1M tokens</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>GPT-4o Mini</td>
+                        <td>$0.15</td>
+                        <td>$0.60</td>
+                    </tr>
+                    <tr>
+                        <td>Claude 3.5 Sonnet</td>
+                        <td>$3.00</td>
+                        <td>$15.00</td>
+                    </tr>
+                    <tr>
+                        <td>GPT-4o</td>
+                        <td>$2.50</td>
+                        <td>$10.00</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Cost Estimates by Use Case</h3>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Use Case</th>
+                        <th>Daily Conversations</th>
+                        <th>Est. Monthly Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Daily briefing agent</td>
+                        <td>10</td>
+                        <td>$5-10</td>
+                    </tr>
+                    <tr>
+                        <td>CS automation (50 accounts)</td>
+                        <td>200</td>
+                        <td>$30-50</td>
+                    </tr>
+                    <tr>
+                        <td>Research agent (ongoing)</td>
+                        <td>500+</td>
+                        <td>$100-200</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Cost Reduction Strategies</h3>
+            
+            <ul>
+                <li><strong>Use cheap models for simple tasks</strong> — Route reminders, lookups to Mini models</li>
+                <li><strong>Implement caching</strong> — Don't re-fetch the same data</li>
+                <li><strong>Limit conversation length</strong> — Truncate or summarize old context</li>
+                <li><strong>Set budgets per agent</strong> — Cap spend before it gets out of hand</li>
+                <li><strong>Monitor daily</strong> — Catch spikes early</li>
+            </ul>
+            
+            <h3>Setting Up Budget Alerts</h3>
+            
+            <pre><code># In your config
+{
+  "budget": {
+    "monthlyLimit": 50,
+    "alertAt": 0.8,
+    "notifyChannel": "telegram"
+  }
+}</code></pre>
+        </section>
+        
+        <section id="case-studies">
+            <h2>// CASE STUDIES</h2>
+            
+            <h3>Case Study 1: The $50K Churn Saver</h3>
+            
+            <p><strong>Company:</strong> B2B SaaS, 200 enterprise accounts</p>
+            <p><strong>Problem:</strong> CS team manually monitored health scores. Missed 30% of at-risk signals.</p>
+            <p><strong>Solution:</strong> OpenClaw agent monitoring:</p>
+            <ul>
+                <li>Product usage drops > 40%</li>
+                <li>Support ticket spike</li>
+                <li> NPS score drop</li>
+                <li>No login in 14 days</li>
+            </ul>
+            <p><strong>Result:</strong> Caught 47 at-risk accounts in 90 days. Saved 6 renewals = $520K ARR preserved.</p>
+            
+            <h3>Case Study 2: The Research Engine</h3>
+            
+            <p><strong>User:</strong> Sales development team</p>
+            <p><strong>Problem:</strong> Manually researching leads took 20 mins each. Couldn't scale.</p>
+            <p><strong>Solution:</strong> OpenClaw research agent that:</p>
+            <ul>
+                <li>Pulls LinkedIn profile</li>
+                <li>Finds recent company news</li>
+                <li>Checks for mutual connections</li>
+                <li>Generates personalized outreach</li>
+            </ul>
+            <p><strong>Result:</strong> 100 personalized leads/day. Reply rate up 3x. Booked 15 demos in first month.</p>
+            
+            <h3>Case Study 3: The Personal Chief of Staff</h3>
+            
+            <p><strong>User:</strong> Executive, 50+ hours/week in meetings</p>
+            <p><strong>Problem:</strong> Drowning in calendar, email, follow-ups.</p>
+            <p><strong>Solution:</strong> OpenClaw agent that:</p>
+            <ul>
+                <li>Morning briefing with priorities</li>
+                <li>Meeting prep summaries</li>
+                <li>Email triage and drafting</li>
+                <li>Follow-up tracking</li>
+            </ul>
+            <p><strong>Result:</strong> Reclaimed 10+ hours/week. Never missed a follow-up.</p>
+        </section>
+        
+        <section id="skills">
+            <h2>// BUILDING CUSTOM SKILLS</h2>
+            
+            <p>Skills are reusable tool sets that extend your agent's capabilities. Here's how to build them.</p>
+            
+            <h3>What Is a Skill?</h3>
+            
+            <p>A skill is a collection of:</p>
+            <ul>
+                <li><strong>Tool definitions</strong> — What the agent can do</li>
+                <li><strong>Implementation</strong> — The code that runs</li>
+                <li><strong>Documentation</strong> — How to use it</li>
+            </ul>
+            
+            <h3>Skill Structure</h3>
+            
+            <pre><code>skills/
+  └── my-skill/
+      ├── SKILL.md        # Documentation
+      ├── tools.js        # Tool definitions
+      └── index.js        # Implementation</code></pre>
+            
+            <h3>Example: Weather Skill</h3>
+            
+            <p><strong>SKILL.md:</strong></p>
+            <pre><code># Weather Skill
+
+## Tools
+- `get_weather` - Get current weather for a location
+- `get_forecast` - Get 3-day forecast
+
+## Usage
+Ask: "What's the weather in [city]?"</code></pre>
+            
+            <p><strong>tools.js:</strong></p>
+            <pre><code>module.exports = {
+  tools: [
+    {
+      name: 'get_weather',
+      description: 'Get current weather for a city',
+      parameters: {
+        city: { type: 'string', required: true }
+      }
+    }
+  ]
+};</code></pre>
+            
+            <h3>Registering a Skill</h3>
+            
+            <pre><code>// In your agent config
+{
+  "skills": ["weather", "calendar", "email", "my-custom-skill"]
+}</code></pre>
+            
+            <h3>When to Build Custom Skills</h3>
+            
+            <ul>
+                <li>Repeated task across conversations</li>
+                <li>Custom API integrations</li>
+                <li>Domain-specific tools (e.g., CRM, support desk)</li>
+                <li>External service automation</li>
+            </ul>
+            
+            <div class="box">
+                <h3>Pro Tip: Start Simple</h3>
+                <p>Don't over-engineer. One well-designed tool is better than a complex skill. Add more as needed.</p>
+            </div>
+        </section>
+        
+        <section id="voice">
+            <h2>// VOICE & AUDIO</h2>
+            
+            <p>OpenClaw supports text-to-speech and voice interactions. Here's how to enable it.</p>
+            
+            <h3>Text-to-Speech (TTS)</h3>
+            
+            <p>Your agent can speak to you. Configure in your agent:</p>
+            
+            <pre><code>{
+  "voice": {
+    "enabled": true,
+    "defaultVoice": "nova",
+    "speaker": "kitchen-homepod"
+  }
+}</code></pre>
+            
+            <h3>Available Voices</h3>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Voice</th>
+                        <th>Style</th>
+                        <th>Best For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nova</td>
+                        <td>Warm, slightly British</td>
+                        <td>General use, briefings</td>
+                    </tr>
+                    <tr>
+                        <td>Alloy</td>
+                        <td>Neutral, clear</td>
+                        <td>Technical content</td>
+                    </tr>
+                    <tr>
+                        <td>Onyx</td>
+                        <td>Deep, authoritative</td>
+                        <td>Important announcements</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Voice Use Cases</h3>
+            
+            <ul>
+                <li><strong>Morning briefings</strong> — Listen while getting ready</li>
+                <li><strong>Quick updates</strong> — Hands-free check-ins</li>
+                <li><strong>Accessibility</strong> — Voice output for screen reader users</li>
+                <li><strong>Driving</strong> — Listen to summaries while commuting</li>
+            </ul>
+            
+            <h3>Audio Input (STT)</h3>
+            
+            <p>Coming soon: Voice commands. For now, use voice-to-text tools to dictate input.</p>
+        </section>
+        
+        <section id="browser">
+            <h2>// BROWSER AUTOMATION</h2>
+            
+            <p>OpenClaw can control a browser for web automation, scraping, and testing.</p>
+            
+            <h3>What You Can Do</h3>
+            
+            <ul>
+                <li><strong>Web scraping</strong> — Extract data from any page</li>
+                <li><strong>Form filling</strong> — Automate data entry</li>
+                <li><strong>Testing</strong> — Verify web app behavior</li>
+                <li><strong>Monitoring</strong> — Track changes on pages</li>
+            </ul>
+            
+            <h3>Browser Profiles</h3>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Profile</th>
+                        <th>Use Case</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>openclaw</td>
+                        <td>Isolated browser for automation</td>
+                    </tr>
+                    <tr>
+                        <td>chrome</td>
+                        <td>Take over your existing Chrome</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Basic Browser Command</h3>
+            
+            <pre><code>browser action=open url=https://example.com
+browser action=snapshot</code></pre>
+            
+            <h3>Example: Price Monitoring</h3>
+            
+            <p>Track product prices across sites:</p>
+            
+            <ol>
+                <li>Navigate to product page</li>
+                <li>Extract price element</li>
+                <li>Compare to target price</li>
+                <li>Alert when threshold hit</li>
+            </ol>
+            
+            <h3>Security Notes</h3>
+            
+            <ul>
+                <li>Don't let agents browse to sensitive sites unattended</li>
+                <li>Review any form submissions before execution</li>
+                <li>Use isolated browser profile for risky tasks</li>
+            </ul>
+        </section>
+        
         <section id="templates">
             <h2>// COPY-PASTE TEMPLATES</h2>
-            
-            <h3>SOUL.md — Personal Assistant Agent</h3>
             <pre><code># SOUL.md - Personal Assistant
 
 ## Persona
@@ -743,5 +1350,36 @@ Keep it under 5 bullet points. Format:
             <p style="margin-top: 10px;">© 2025 Tim Pittman. All rights reserved.</p>
         </footer>
     </div>
+    <script>
+        // Progress bar
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+        
+        // Active nav highlighting
+        const sections = document.querySelectorAll('section[id]');
+        const navPills = document.querySelectorAll('.nav-pill');
+        
+        window.addEventListener('scroll', function() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navPills.forEach(pill => {
+                pill.classList.remove('active');
+                if (pill.getAttribute('href') === '#' + current) {
+                    pill.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
