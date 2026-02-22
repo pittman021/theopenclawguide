@@ -285,6 +285,7 @@
         
         <nav class="nav-pills">
             <a href="#intro" class="nav-pill">Intro</a>
+            <a href="#how-it-works" class="nav-pill">How It Works</a>
             <a href="#what-youll-learn" class="nav-pill">What You'll Learn</a>
             <a href="#setup" class="nav-pill">Setup</a>
             <a href="#models" class="nav-pill">Models</a>
@@ -330,6 +331,51 @@
             </ul>
             
             <p><strong>OpenClaw makes AI accessible.</strong> It's designed for busy professionals like you — not engineers.</p>
+        </section>
+        
+        <section id="how-it-works">
+            <h2>// HOW OPENCLAW WORKS</h2>
+            
+            <p>Before we dive in, let's look under the hood. Understanding how OpenClaw works will help you customize it to your needs.</p>
+            
+            <h3>The Basic Flow</h3>
+            
+            <p>When you message your agent, here's what happens:</p>
+            
+            <ol>
+                <li><strong>You send a message</strong> (via Telegram, Slack, WhatsApp, or terminal)</li>
+                <li><strong>OpenClaw reads your files</strong> — SOUL.md, USER.md, MEMORY.md</li>
+                <li><strong>It understands your request</strong> — using the AI model</li>
+                <li><strong>It takes action</strong> — calls tools, runs skills, spawns sub-agents</li>
+                <li><strong>It remembers</strong> — writes back to MEMORY.md</li>
+                <li><strong>You get a response</strong> — personalized to you</li>
+            </ol>
+            
+            <h3>The Core Files</h3>
+            
+            <p>Four files make your agent work:</p>
+            
+            <ul>
+                <li><strong>SOUL.md</strong> — WHO your agent is (personality, voice, identity)</li>
+                <li><strong>USER.md</strong> — WHO you're helping (your preferences, context)</li>
+                <li><strong>MEMORY.md</strong> — Long-term memory (what agent remembers forever)</li>
+                <li><strong>memory/</strong> — Daily logs (YYYY-MM-DD.md files)</li>
+            </ul>
+            
+            <h3>Sub-Agents</h3>
+            
+            <p>Your main agent can spawn smaller agents for specific tasks:</p>
+            <ul>
+                <li><strong>Warren</strong> — monitors investments, tracks stocks</li>
+                <li><strong>Crawly</strong> — researches topics, gathers info</li>
+                <li><strong>Cathie</strong> — creates content, writes posts</li>
+            </ul>
+            
+            <p>Think of sub-agents as contractors you hire for one-off jobs, while your main agent is your full-time employee.</p>
+            
+            <h3>Skills</h3>
+            
+            <p>Skills are like apps that give your agent new abilities — weather, email, calendar, notes, and more.</p>
         </section>
         
         <section id="what-youll-learn">
