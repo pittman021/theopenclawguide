@@ -274,6 +274,14 @@
             pre { font-size: 0.8rem; }
         }
     </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5D0D1QD4ER"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5D0D1QD4ER');
+    </script>
 </head>
 <body>
     <div class="container">
@@ -285,7 +293,6 @@
         
         <nav class="nav-pills">
             <a href="#intro" class="nav-pill">Intro</a>
-            <a href="#how-it-works" class="nav-pill">How It Works</a>
             <a href="#what-youll-learn" class="nav-pill">What You'll Learn</a>
             <a href="#setup" class="nav-pill">Setup</a>
             <a href="#models" class="nav-pill">Models</a>
@@ -323,7 +330,6 @@
             <p>This guide is for you if:</p>
             
             <ul>
-                <li>You work in software, operations, or a professional role</li>
                 <li>You're overwhelmed with manual tasks that eat your day</li>
                 <li>You've tried AI tools but felt lost or overwhelmed</li>
                 <li>You want to work smarter, not harder</li>
@@ -331,51 +337,6 @@
             </ul>
             
             <p><strong>OpenClaw makes AI accessible.</strong> It's designed for busy professionals like you — not engineers.</p>
-        </section>
-        
-        <section id="how-it-works">
-            <h2>// HOW OPENCLAW WORKS</h2>
-            
-            <p>Before we dive in, let's look under the hood. Understanding how OpenClaw works will help you customize it to your needs.</p>
-            
-            <h3>The Basic Flow</h3>
-            
-            <p>When you message your agent, here's what happens:</p>
-            
-            <ol>
-                <li><strong>You send a message</strong> (via Telegram, Slack, WhatsApp, or terminal)</li>
-                <li><strong>OpenClaw reads your files</strong> — SOUL.md, USER.md, MEMORY.md</li>
-                <li><strong>It understands your request</strong> — using the AI model</li>
-                <li><strong>It takes action</strong> — calls tools, runs skills, spawns sub-agents</li>
-                <li><strong>It remembers</strong> — writes back to MEMORY.md</li>
-                <li><strong>You get a response</strong> — personalized to you</li>
-            </ol>
-            
-            <h3>The Core Files</h3>
-            
-            <p>Four files make your agent work:</p>
-            
-            <ul>
-                <li><strong>SOUL.md</strong> — WHO your agent is (personality, voice, identity)</li>
-                <li><strong>USER.md</strong> — WHO you're helping (your preferences, context)</li>
-                <li><strong>MEMORY.md</strong> — Long-term memory (what agent remembers forever)</li>
-                <li><strong>memory/</strong> — Daily logs (YYYY-MM-DD.md files)</li>
-            </ul>
-            
-            <h3>Sub-Agents</h3>
-            
-            <p>Your main agent can spawn smaller agents for specific tasks:</p>
-            <ul>
-                <li><strong>Warren</strong> — monitors investments, tracks stocks</li>
-                <li><strong>Crawly</strong> — researches topics, gathers info</li>
-                <li><strong>Cathie</strong> — creates content, writes posts</li>
-            </ul>
-            
-            <p>Think of sub-agents as contractors you hire for one-off jobs, while your main agent is your full-time employee.</p>
-            
-            <h3>Skills</h3>
-            
-            <p>Skills are like apps that give your agent new abilities — weather, email, calendar, notes, and more.</p>
         </section>
         
         <section id="what-youll-learn">
@@ -495,22 +456,21 @@ npm run setup</code></pre>
             </blockquote>
             
             <p>That's it. Every morning you'll wake up to a personalized briefing. No coding required.</p>
-    
+            
+            <h3>Understanding Agents vs Sub-Agents</h3>
+            
+            <p><strong>Agents</strong> = Independent workers with their own personality and memory<br>
+            <strong>Sub-Agents</strong> = Task-specific helpers spawned by your main agent</p>
+            
+            <p>Think of it like:</p>
+            <ul>
+                <li>Agent = Your employee</li>
+                <li>Sub-Agent = A contractor you hire for one specific job</li>
+            </ul>
         </section>
         
         <section id="models">
             <h2>// SECTION 2: UNDERSTANDING MODELS</h2>
-            
-            <div class="video-container">
-                <iframe 
-                    src="https://www.youtube.com/embed/LCPP_zEk48M?si=ZQbbjZ5CwM3wDznv" 
-                    title="YouTube video player" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerpolicy="strict-origin-when-cross-origin" 
-                    allowfullscreen>
-                </iframe>
-            </div>
             
             <h3>Choose the right model for the right task</h3>
             
@@ -577,17 +537,6 @@ npm run setup</code></pre>
         <section id="soul">
             <h2>// SECTION 3: BUILDING YOUR BOT'S SOUL</h2>
             
-            <div class="video-container">
-                <iframe 
-                    src="https://www.youtube.com/embed/cN-uE3ZXU18?si=s_lW84Ncy2ZiWfEs" 
-                    title="YouTube video player" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerpolicy="strict-origin-when-cross-origin" 
-                    allowfullscreen>
-                </iframe>
-            </div>
-            
             <h3>Understand and customize your agent's identity</h3>
             
             <p>This is where most people get stuck. The docs don't explain it well, so here's the deep dive.</p>
@@ -603,17 +552,6 @@ npm run setup</code></pre>
             <h3>What is USER.md?</h3>
             
             <p>USER.md defines who YOU are — your preferences, context, goals. This helps your agent tailor its responses to you.</p>
-            
-            <div class="video-container">
-                <iframe 
-                    src="https://www.youtube.com/embed/d7v21CzSkq8?si=iAisLwhIqEnrvNHu" 
-                    title="YouTube video player" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerpolicy="strict-origin-when-cross-origin" 
-                    allowfullscreen>
-                </iframe>
-            </div>
             
             <h3>The File Structure</h3>
             
@@ -660,52 +598,186 @@ npm run setup</code></pre>
             
             <p>This is critical. Without proper memory setup, your agent forgets everything between sessions.</p>
             
-            <h3>How Memory Works</h3>
-            
-            <p>OpenClaw has three memory layers:</p>
-            
-            <ol>
-                <li><strong>Short-term:</strong> Conversation context (resets each session)</li>
-                <li><strong>Medium-term:</strong> Daily memory files in <code>memory/YYYY-MM-DD.md</code></li>
-                <li><strong>Long-term:</strong> MEMORY.md for consolidated persistent knowledge</li>
-            </ol>
-            
-            <h3>Setting Up Memory</h3>
-            
-            <p>Memory should be ON by default. To verify:</p>
-            
-            <ol>
-                <li>Check that <code>memory/</code> folder exists in your workspace</li>
-                <li>Confirm MEMORY.md is present</li>
-                <li>Test it: ask your agent something, start a new session, ask again</li>
-            </ol>
-            
-            <h3>Best Practice: Always Update Memory</h3>
-            
-            <div class="box-accent">
-                <h3>Before ending any session, tell your agent to:</h3>
-                <p>"Update memory with what we worked on today and what's pending"</p>
+            <div style="margin: 30px 0;">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/JRIp1w-q4bs?si=FUmhlZxRY-1RG0d_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             
-            <p>Or manually add to <code>memory/YYYY-MM-DD.md</code>:</p>
+            <h3>How Memory Actually Works</h3>
+            
+            <p><strong>OpenClaw doesn't remember things the way a human does.</strong> It doesn't have a brain that retains information between conversations. Every time you start a new session, the model starts completely fresh. What makes it feel like it "remembers" is that it reads files off disk at the start of each session. If nothing is written to those files, nothing is remembered.</p>
+            
+            <div class="box-accent">
+                <h3>Think of it like RAM vs. Hard Drive</h3>
+                <p><strong>Context window</strong> = RAM — fast, live, but wiped when session ends or gets too full.</p>
+                <p><strong>Memory files</strong> = Hard drive — persistent, readable across sessions, but only useful if information actually gets written there.</p>
+            </div>
+            
+            <h3>The File Structure</h3>
+            
+            <p>OpenClaw's memory system is entirely file-based. Everything lives in plain Markdown files. Here's what each file is for:</p>
+            
+            <h4>SOUL.md — Agent Identity & Personality</h4>
+            <p>Defines who your agent is — its name, voice, personality, values. This is loaded every session and affects the overall tone and character of responses. Most people don't need to touch this often, but if you want your agent to feel more like a specific persona or role, this is where you define it.</p>
+            
+            <h4>USER.md — Your Preferences & Identity</h4>
+            <p>This file is about <em>you</em>. Your communication style preferences, what you like and don't like, your role, your team, your working style. This gets loaded every session and directly shapes how the agent responds to you.</p>
+            <p><em>This is the most powerful file for consistent behavior. Want your agent to always respond concisely? Write it here.</em></p>
+            
+            <h4>MEMORY.md — Long-Term Memory</h4>
+            <p>Your agent's curated long-term memory. Think of it as the facts that should stay true over time: your name, your preferences, your tech stack, recurring project context, key decisions you've made. This file is loaded every session, so anything here is always available.</p>
+            <p><em>Key word is curated. Don't let this file become a diary. Keep it clean and factual. Aim for one-page onboarding doc.</em></p>
+            
+            <h4>memory/YYYY-MM-DD.md — Daily Logs</h4>
+            <p>Dated daily notes. Each day gets its own file. This is where running context lives: what you worked on today, decisions made, things in progress, context for picking up tomorrow.</p>
+            <p><em>These accumulate over time and can get noisy. Periodically prune or summarize older daily logs into MEMORY.md.</em></p>
+            
+            <h4>BRAIN.md — Active Projects</h4>
+            <p>Some setups include a BRAIN.md for active projects and current action items — a mid-term layer between daily logs and long-term memory. Think of it as "what are we working on right now." Not all setups use this, but it's a useful pattern if you have ongoing multi-week projects.</p>
+            
+            <h3>What Happens Automatically (And What Doesn't)</h3>
+            
+            <div class="box-accent">
+                <h3>This is probably the most important section in the whole guide.</h3>
+            </div>
+            
+            <p><strong>What OpenClaw Does Automatically:</strong></p>
+            <ol>
+                <li><strong>Session start file loading:</strong> When you open a new session, OpenClaw automatically reads SOUL.md, USER.md, MEMORY.md, and typically today's and yesterday's daily log files.</li>
+                <li><strong>Pre-compaction memory flush:</strong> When a conversation gets long enough that it's approaching the context window limit, OpenClaw triggers a silent background turn. It prompts the model to write any lasting notes to the daily log before the context gets compressed.</li>
+            </ol>
+            
+            <p><strong>What Doesn't Happen Automatically:</strong></p>
+            <p>During a normal session, the model doesn't continuously write to disk. It keeps things in context — in RAM — and only writes when you tell it to, when a skill specifically triggers a write, or when the compaction flush fires.</p>
+            
+            <div class="box-warning">
+                <h3>⚠️ The Big Gotcha</h3>
+                <p>If you have a great conversation, make important decisions, share key context with your agent, then end the session without explicitly saving — most of that is gone. The next session starts fresh except for whatever was already in your files before the conversation started.</p>
+            </div>
+            
+            <h3>Understanding Compaction</h3>
+            
+            <p>Every AI model has a context window — a maximum amount of text it can process at once. When a conversation gets long, older parts start to get compressed. That process is compaction.</p>
+            
+            <p><strong>The problem:</strong> Compression is lossy. Details get smoothed over. Specific facts that were in the raw conversation become vague summaries. If something important was only in the conversation and never written to a file, compaction can effectively delete it.</p>
+            
+            <h3>The Right Commands — What to Say and When</h3>
+            
+            <p>There are four levels of specificity you can use. The more specific you are, the more reliable the save.</p>
+            
+            <h4>Level 1: "Remember this" (Weakest)</h4>
+            <p>Saying "remember that I use Vim" or "remember we decided X" technically works in-session. The agent keeps it in context. But there's no guarantee it writes it to a file. When the session ends, it's likely gone.</p>
+            <p><em>Use this only for things that only need to survive within the current conversation.</em></p>
+            
+            <h4>Level 2: "Save to our daily log" (Good for session context)</h4>
+            <p>This explicitly directs the agent to write to today's memory/YYYY-MM-DD.md file. Good for things that matter for the next few days.</p>
+            <p><em>Say: "Save this to the daily log" or "Add to today's memory log that we decided to use Actix-web for the backend."</em></p>
+            
+            <h4>Level 3: "Update MEMORY.md" (Best for long-term facts)</h4>
+            <p>For anything you want to remember across weeks or months — project architecture, your tech stack, team members, key decisions — explicitly target MEMORY.md.</p>
+            <p><em>Say: "Update MEMORY.md with the fact that our backend uses Rust with Actix-web"</em></p>
+            
+            <h4>Level 4: "Add to USER.md" (Strongest for behavior)</h4>
+            <p>For behavioral preferences — how you want the agent to respond, what you don't like, formatting preferences — USER.md is the right target.</p>
+            <p><em>Say: "Add to USER.md that I always want copy-pastable commands, not theoretical explanations."</em></p>
+            
+            <h3>End-of-Session Routine</h3>
+            
+            <div class="box-accent">
+                <h3>The single best habit you can develop:</h3>
+                <p>Before you close the chat, say:</p>
+                <p><strong>"Update the daily log and MEMORY.md with what we worked on today, any decisions made, and what's pending."</strong></p>
+                <p>This one habit will make 80% of memory issues disappear.</p>
+            </div>
+            
+            <h3>Verifying Saves</h3>
+            
+            <p>Always verify important saves actually happened. You can ask "What does MEMORY.md say right now?" or just open the file in your text editor. Since everything is plain Markdown, a 5-second check confirms whether the write happened.</p>
+            
+            <h3>Advanced Configuration</h3>
+            
+            <p>If you want memory to work reliably without having to think about it every session, you can tune the configuration:</p>
+            
+            <pre><code>{
+  "agents": {
+    "defaults": {
+      "compaction": {
+        "reserveTokensFloor": 20000,
+        "memoryFlush": {
+          "enabled": true,
+          "softThresholdTokens": 4000,
+          "prompt": "Write lasting notes to memory/YYYY-MM-DD.md; reply NO_REPLY if nothing to store."
+        }
+      }
+    }
+  }
+}</code></pre>
+            
+            <p>The flush fires when your remaining tokens fall below reserveTokensFloor + softThresholdTokens. Increasing reserveTokensFloor gives the flush more room to operate.</p>
+            
+            <h3>Standing Memory Instructions</h3>
+            
+            <p>One of the most underused features: add standing memory instructions to your AGENTS.md. Something like:</p>
+            <p><em>"After any exchange where a decision is made, a preference is expressed, or important technical context is shared, write a brief note to today's memory file."</em></p>
+            
+            <h3>Plugins: When Built-In Memory Isn't Enough</h3>
+            
             <ul>
-                <li>What you worked on</li>
-                <li>Decisions made</li>
-                <li>What's next</li>
-                <li>Any important context</li>
+                <li><strong>Mem0 plugin:</strong> Moves memory capture outside the agent loop entirely. Captures facts automatically after every turn. Most practical upgrade for serious multi-session work.</li>
+                <li><strong>Cognee plugin:</strong> Adds a knowledge graph layer. Understands relationships — Alice manages auth, project X depends on service Y.</li>
             </ul>
             
-            <h3>Starting a New Session</h3>
+            <h3>Best Practices Cheat Sheet</h3>
             
-            <p>When you start a new session, OpenClaw automatically reads:</p>
+            <div class="box-accent">
+                <h3>The Golden Rules</h3>
+                <ul>
+                    <li><strong>MEMORY.md</strong> is for facts that stay true forever. Keep it curated, not a diary.</li>
+                    <li><strong>USER.md</strong> is for how you want the agent to behave. Write preferences here explicitly.</li>
+                    <li><strong>Daily logs</strong> are for session continuity. They accumulate — prune them occasionally.</li>
+                    <li><strong>Always end sessions with a save command.</strong> This one habit fixes 80% of memory issues.</li>
+                    <li><strong>Verify important saves.</strong> Open the file or ask the agent to read it back.</li>
+                    <li><strong>For behavioral preferences, target USER.md specifically</strong> — it's loaded every session.</li>
+                </ul>
+            </div>
+            
+            <h4>Common Mistakes</h4>
+            
             <ul>
-                <li>SOUL.md</li>
-                <li>USER.md</li>
-                <li>MEMORY.md</li>
-                <li>Today's and yesterday's memory files</li>
+                <li><strong>Mistake 1:</strong> Assuming "remember this" writes to disk. It often doesn't. Specify the target file.</li>
+                <li><strong>Mistake 2:</strong> Letting MEMORY.md become a daily diary. It gets noisy and the agent struggles to use it effectively.</li>
+                <li><strong>Mistake 3:</strong> Relying entirely on the compaction flush. It only fires near the end of long sessions.</li>
+                <li><strong>Mistake 4:</strong> Never checking what's actually in the memory files. Open them occasionally.</li>
+                <li><strong>Mistake 5:</strong> Not using USER.md for preferences. If you keep telling your agent the same things every session, write them in USER.md once.</li>
             </ul>
             
-            <p><strong>This is why memory files are essential</strong> — they preserve context across sessions.</p>
+            <h4>Quick Command Reference</h4>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Goal</th>
+                        <th>Command</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Session continuity</td>
+                        <td>"Save this to our daily log"</td>
+                    </tr>
+                    <tr>
+                        <td>Long-term facts</td>
+                        <td>"Update MEMORY.md with the fact that..."</td>
+                    </tr>
+                    <tr>
+                        <td>Behavioral preferences</td>
+                        <td>"Add to USER.md that I always want..."</td>
+                    </tr>
+                    <tr>
+                        <td>End of session</td>
+                        <td>"Update the daily log and MEMORY.md with what we worked on today, decisions made, and what's pending"</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
         
         <section id="skills">
@@ -762,42 +834,6 @@ Brief description of the skill's purpose
                 <li><strong>Test thoroughly</strong> — Make sure it works before relying on it</li>
                 <li><strong>Share with community</strong> — Others might find it useful!</li>
             </ul>
-            
-            <h3>Email Integration (Gmail)</h3>
-            
-            <p>OpenClaw can read, summarize, draft, and send emails through your Gmail account. Here's how to set it up safely.</p>
-            
-            <h4>Why a Dedicated Email Matters</h4>
-            
-            <p><strong>Never connect your personal Gmail to OpenClaw.</strong> Instead, create a brand new Gmail account just for your bot. This keeps your personal data safe and isolated. If anything goes wrong, it only affects the bot account — not your main email, calendar, or Google services.</p>
-            
-            <h4>Google Workspace Option</h4>
-            
-            <p>If you have a Google Workspace account, that counts as a completely separate account from your personal Gmail. You can connect it to OpenClaw independently.</p>
-            
-            <p>For custom domains (like bot@yourdomain.com), you have two options:</p>
-            <ul>
-                <li><strong>Google Workspace</strong> — ~$6/month, gives you Gmail with your own domain</li>
-                <li><strong>Resend</strong> — Free tier: 3,000 emails/month, works with OpenClaw's Resend skill</li>
-            </ul>
-            
-            <h4>Step-by-Step Setup</h4>
-            
-            <ol>
-                <li><strong>Create a bot Gmail account</strong> — Go to gmail.com, create a new account just for your bot. Save the credentials in a password manager.</li>
-                
-                <li><strong>Enable Gmail API</strong> — Go to <a href="https://console.cloud.google.com" target="_blank">console.cloud.google.com</a> logged in as your bot account. Create a new project, then go to APIs & Services → Library → find Gmail API and enable it.</li>
-                
-                <li><strong>Create OAuth credentials</strong> — Under APIs & Services → Credentials, create an OAuth client ID (Desktop app). Download the JSON file. Also add your bot Gmail as a test user in the OAuth consent screen.</li>
-                
-                <li><strong>Install and authenticate</strong> — Run <code>clawdhub install gog</code> to install the Google Workspace skill, then run <code>gog auth</code> and follow the browser login flow using your bot Gmail account.</li>
-                
-                <li><strong>Test it</strong> — Ask OpenClaw to check your inbox and summarize new emails. If it works, you're fully set up!</li>
-            </ol>
-            
-            <h4>Quick Recap</h4>
-            
-            <p>Create a dedicated Gmail → Set up Google Cloud project with Gmail API → Create OAuth credentials → Authenticate with gogcli → Test. The Google Cloud setup is the most involved part but you only do it once. After that, OpenClaw can handle all your email needs.</p>
         </section>
         
         <section id="advanced">
