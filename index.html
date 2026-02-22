@@ -692,6 +692,42 @@ Brief description of the skill's purpose
                 <li><strong>Test thoroughly</strong> — Make sure it works before relying on it</li>
                 <li><strong>Share with community</strong> — Others might find it useful!</li>
             </ul>
+            
+            <h3>Email Integration (Gmail)</h3>
+            
+            <p>OpenClaw can read, summarize, draft, and send emails through your Gmail account. Here's how to set it up safely.</p>
+            
+            <h4>Why a Dedicated Email Matters</h4>
+            
+            <p><strong>Never connect your personal Gmail to OpenClaw.</strong> Instead, create a brand new Gmail account just for your bot. This keeps your personal data safe and isolated. If anything goes wrong, it only affects the bot account — not your main email, calendar, or Google services.</p>
+            
+            <h4>Google Workspace Option</h4>
+            
+            <p>If you have a Google Workspace account, that counts as a completely separate account from your personal Gmail. You can connect it to OpenClaw independently.</p>
+            
+            <p>For custom domains (like bot@yourdomain.com), you have two options:</p>
+            <ul>
+                <li><strong>Google Workspace</strong> — ~$6/month, gives you Gmail with your own domain</li>
+                <li><strong>Resend</strong> — Free tier: 3,000 emails/month, works with OpenClaw's Resend skill</li>
+            </ul>
+            
+            <h4>Step-by-Step Setup</h4>
+            
+            <ol>
+                <li><strong>Create a bot Gmail account</strong> — Go to gmail.com, create a new account just for your bot. Save the credentials in a password manager.</li>
+                
+                <li><strong>Enable Gmail API</strong> — Go to <a href="https://console.cloud.google.com" target="_blank">console.cloud.google.com</a> logged in as your bot account. Create a new project, then go to APIs & Services → Library → find Gmail API and enable it.</li>
+                
+                <li><strong>Create OAuth credentials</strong> — Under APIs & Services → Credentials, create an OAuth client ID (Desktop app). Download the JSON file. Also add your bot Gmail as a test user in the OAuth consent screen.</li>
+                
+                <li><strong>Install and authenticate</strong> — Run <code>clawdhub install gog</code> to install the Google Workspace skill, then run <code>gog auth</code> and follow the browser login flow using your bot Gmail account.</li>
+                
+                <li><strong>Test it</strong> — Ask OpenClaw to check your inbox and summarize new emails. If it works, you're fully set up!</li>
+            </ol>
+            
+            <h4>Quick Recap</h4>
+            
+            <p>Create a dedicated Gmail → Set up Google Cloud project with Gmail API → Create OAuth credentials → Authenticate with gogcli → Test. The Google Cloud setup is the most involved part but you only do it once. After that, OpenClaw can handle all your email needs.</p>
         </section>
         
         <section id="advanced">
