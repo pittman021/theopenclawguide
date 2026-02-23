@@ -169,6 +169,35 @@ pre{background:var(--ink);color:#c8ffa0;padding:1.75rem;overflow-x:auto;font-siz
 footer{background:var(--ink);text-align:center;padding:2rem;color:#666;font-size:0.8rem;}
 footer a{color:#aaa;text-decoration:none;}
 
+/* EMAIL CAPTURE — TOP (inside hero-right) */
+.email-hero-form{margin-top:2.5rem;}
+.email-hero-form .ef-label{font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.65);display:block;margin-bottom:0.75rem;}
+.email-hero-form .ef-row{display:flex;gap:0;max-width:420px;}
+.email-hero-form input[type="email"]{flex:1;background:rgba(255,255,255,0.15);border:2px solid rgba(255,255,255,0.3);border-right:none;color:#fff;font-family:'Outfit',sans-serif;font-size:0.9rem;padding:0.85rem 1.1rem;outline:none;transition:border-color 0.2s;}
+.email-hero-form input[type="email"]::placeholder{color:rgba(255,255,255,0.45);}
+.email-hero-form input[type="email"]:focus{border-color:rgba(255,255,255,0.7);}
+.email-hero-form button{background:#fff;color:var(--accent);font-family:'Outfit',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;padding:0.85rem 1.4rem;border:2px solid #fff;cursor:pointer;transition:background 0.2s,color 0.2s;white-space:nowrap;}
+.email-hero-form button:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
+.email-hero-form .ef-fine{font-size:0.72rem;color:rgba(255,255,255,0.4);margin-top:0.6rem;}
+.ef-success{display:none;font-size:0.9rem;color:#fff;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);padding:0.75rem 1rem;margin-top:0.75rem;max-width:420px;}
+
+/* EMAIL CAPTURE — BOTTOM */
+.email-bottom{background:var(--ink);border-top:4px solid var(--accent);padding:5rem 2rem;}
+.email-bottom-inner{max-width:700px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.eb-left{}
+.eb-eyebrow{font-size:0.68rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem;display:block;}
+.eb-left h3{font-family:'Fraunces',serif;font-size:2rem;font-weight:900;color:#fff;line-height:1.15;letter-spacing:-0.02em;}
+.eb-left p{color:#888;font-size:0.9rem;margin-top:0.75rem;line-height:1.65;}
+.eb-right form{display:flex;flex-direction:column;gap:0.75rem;}
+.eb-right label{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#666;}
+.eb-right input[type="email"]{background:#1a1a1a;border:2px solid #2a2a2a;color:#fff;font-family:'Outfit',sans-serif;font-size:0.92rem;padding:0.9rem 1.1rem;outline:none;transition:border-color 0.2s;width:100%;}
+.eb-right input[type="email"]::placeholder{color:#555;}
+.eb-right input[type="email"]:focus{border-color:var(--accent);}
+.eb-right button{background:var(--accent);color:#fff;font-family:'Outfit',sans-serif;font-weight:700;font-size:0.85rem;letter-spacing:0.06em;text-transform:uppercase;padding:0.9rem;border:none;cursor:pointer;transition:opacity 0.2s;width:100%;}
+.eb-right button:hover{opacity:0.88;}
+.eb-fine{font-size:0.72rem;color:#555;margin-top:0.25rem;}
+.eb-success{display:none;font-size:0.9rem;color:var(--accent);background:rgba(255,61,46,0.1);border:1px solid rgba(255,61,46,0.3);padding:0.85rem 1rem;text-align:center;}
+
 @media(max-width:768px){
   .hero{grid-template-columns:1fr;min-height:auto;}
   .hero-right{display:none;}
@@ -180,6 +209,9 @@ footer a{color:#aaa;text-decoration:none;}
   .model-strip,.mem-grid{grid-template-columns:1fr;}
   .mc,.ml{border-right:none;border-bottom:2px solid var(--ink);}
   .section-header{grid-template-columns:1fr;gap:0.5rem;}
+  .email-bottom-inner{grid-template-columns:1fr;gap:2.5rem;}
+  .email-hero-form .ef-row{flex-direction:column;}
+  .email-hero-form input[type="email"]{border-right:2px solid rgba(255,255,255,0.3);}
 }
 </style>
 </head>
@@ -205,8 +237,21 @@ footer a{color:#aaa;text-decoration:none;}
     <div class="byline" style="color:#666;font-size:0.8rem;">Written by <strong style="color:#aaa;">Tim Pittman</strong></div>
   </div>
   <div class="hero-right">
-    <div class="hero-right-label">What you'll build</div>
-    <h2>A 24/7 AI assistant that knows you, works for you, and never forgets.</h2>
+    <div>
+      <div class="hero-right-label">What you'll build</div>
+      <h2>A 24/7 AI assistant that knows you, works for you, and never forgets.</h2>
+    </div>
+    <div class="email-hero-form">
+      <span class="ef-label">Get future guides, courses &amp; templates</span>
+      <form id="form-top" action="https://formspree.io/f/xwvnnlae" method="POST" onsubmit="handleSubmit(event,'form-top','success-top')">
+        <div class="ef-row">
+          <input type="email" name="email" placeholder="your@email.com" required/>
+          <button type="submit">Sign Up →</button>
+        </div>
+        <div class="ef-fine">No spam. Unsubscribe anytime.</div>
+      </form>
+      <div class="ef-success" id="success-top">✓ You're in! We'll be in touch.</div>
+    </div>
   </div>
 </div>
 
@@ -304,7 +349,7 @@ npm install && npm run setup</pre>
   <div class="model-strip">
     <div class="mc"><div class="mc-top"><div class="mc-name">Claude</div><span class="mc-tag a">Anthropic</span></div><p class="mc-desc">Best for writing, analysis, nuanced reasoning. Less likely to make things up.</p><div class="tier"><span class="tier-n">Haiku</span><div class="tier-b"><div class="tier-f a" style="width:35%"></div></div><span class="tier-t">Fast · $</span></div><div class="tier"><span class="tier-n">Sonnet</span><div class="tier-b"><div class="tier-f a" style="width:65%"></div></div><span class="tier-t">Balanced · $$</span></div><div class="tier"><span class="tier-n">Opus</span><div class="tier-b"><div class="tier-f a" style="width:95%"></div></div><span class="tier-t">Best · $$$</span></div></div>
     <div class="mc"><div class="mc-top"><div class="mc-name">GPT</div><span class="mc-tag g">OpenAI</span></div><p class="mc-desc">Best for coding, general tasks, complex multi-part instructions.</p><div class="tier"><span class="tier-n">4o Mini</span><div class="tier-b"><div class="tier-f g" style="width:40%"></div></div><span class="tier-t">Fast · $</span></div><div class="tier"><span class="tier-n">4o</span><div class="tier-b"><div class="tier-f g" style="width:72%"></div></div><span class="tier-t">Balanced · $$</span></div><div class="tier"><span class="tier-n">o1</span><div class="tier-b"><div class="tier-f g" style="width:95%"></div></div><span class="tier-t">Reasoning · $$$</span></div></div>
-    <div class="mc"><div class="mc-top"><div class="mc-name">MiniMax</div><span class="mc-tag m">Minimax</span></div><p class="mc-desc">Best for high-volume, cost-sensitive tasks where speed matters most.</p><div class="tier"><span class="tier-n">M2.5</span><div class="tier-b"><div class="tier-f m" style="width:55%"></div></div><span class="tier-t">Fast · $</span></div></div>
+    <div class="mc"><div class="mc-top"><div class="mc-name">MiniMax</div><span class="mc-tag m">Minimax</span></div    <p class="mc-desc">Best for high-volume, cost-sensitive tasks where speed matters most.</p><div class="tier"><span class="tier-n">M2.5</span><div class="tier-b"><div class="tier-f m" style="width:55%"></div></div><span class="tier-t">Fast · $</span></div></div>
   </div>
 
   <table class="dt">
@@ -372,17 +417,48 @@ npm install && npm run setup</pre>
     <div class="play-ring"><svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div>
     <p>Watch: Advanced Agent Patterns (add your YouTube link here)</p>
   </div>
+</div>
+</div>
 
-  <div class="cta">
-    <h3>You're Ready to Build Something Real</h3>
-    <p>You've covered everything you need. Start with the morning briefing — it's the fastest way to see real value.</p>
-    <div class="cta-btns">
-      <a href="https://discord.gg/openclaw" class="btn-p">Join the Community</a>
-      <a href="#" class="btn-s">Get the Full Course →</a>
+<div class="email-bottom">
+  <div class="email-bottom-inner">
+    <div class="eb-left">
+      <span class="eb-eyebrow">Stay in the loop</span>
+      <h3>More guides, courses &amp; templates on the way.</h3>
+      <p>Sign up to get access to future guides, courses, and templates to work with AI — delivered straight to your inbox.</p>
+    </div>
+    <div class="eb-right">
+      <form id="form-bottom" action="https://formspree.io/f/xwvnnlae" method="POST" onsubmit="handleSubmit(event,'form-bottom','success-bottom')">
+        <label for="email-bottom">Your email address</label>
+        <input type="email" id="email-bottom" name="email" placeholder="you@example.com" required/>
+        <button type="submit">Get Access →</button>
+        <div class="eb-fine">No spam. Unsubscribe anytime.</div>
+      </form>
+      <div class="eb-success" id="success-bottom">✓ You're in! Check your inbox soon.</div>
     </div>
   </div>
 </div>
-</div>
+
+<script>
+function handleSubmit(e, formId, successId) {
+  e.preventDefault();
+  const form = document.getElementById(formId);
+  const data = new FormData(form);
+  fetch(form.action, {
+    method: 'POST',
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  }).then(res => {
+    if (res.ok) {
+      form.style.display = 'none';
+      document.getElementById(successId).style.display = 'block';
+    }
+  }).catch(() => {
+    form.style.display = 'none';
+    document.getElementById(successId).style.display = 'block';
+  });
+}
+</script>
 
 <footer>© 2025 Tim Pittman · <a href="https://discord.gg/openclaw">Discord</a> · <a href="#">GitHub</a> · <a href="#">@tim on X</a></footer>
 
