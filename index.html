@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Option 2 — Bold Editorial</title>
+<title>Complete Guide to OpenClaw | Build Your Personal AI Agent</title>
+<meta name="description" content="The complete guide to building AI agents with OpenClaw. No coding required — just 60 minutes to your first agent.">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5D0D1QD4ER"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -17,41 +18,49 @@
 :root{--ink:#0f0f0f;--paper:#fafaf7;--accent:#ff3d2e;--accent2:#1a6bff;--accent3:#ffb800;--muted:#767676;--border:#e0e0d8;}
 body{font-family:'Outfit',sans-serif;background:var(--paper);color:var(--ink);}
 
-/* NAV */
-nav{background:var(--ink);padding:0 2rem;display:flex;align-items:center;position:sticky;top:0;z-index:100;}
-.nav-logo{font-family:'Fraunces',serif;font-weight:900;font-size:1.15rem;color:#fff;padding:1rem 1.5rem 1rem 0;border-right:1px solid #333;margin-right:1.25rem;letter-spacing:-0.02em;}
-.nav-logo span{color:var(--accent);}
-nav a{color:#aaa;font-size:0.78rem;font-weight:500;text-decoration:none;padding:1rem 0.85rem;white-space:nowrap;transition:color 0.2s;letter-spacing:0.03em;}
-nav a:hover{color:#fff;}
+/* LAYOUT WITH SIDEBAR */
+.layout{display:grid;grid-template-columns:280px 1fr;min-height:100vh;}
 
-/* HERO — split layout */
-.hero{display:grid;grid-template-columns:1fr 1fr;min-height:88vh;}
-.hero-left{background:var(--ink);padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center;}
-.hero-right{background:var(--accent);display:flex;flex-direction:column;justify-content:flex-end;padding:3rem;position:relative;overflow:hidden;}
-.hero-right::before{content:'AI';font-family:'Fraunces',serif;font-weight:900;font-size:22rem;color:rgba(255,255,255,0.12);position:absolute;bottom:-2rem;right:-2rem;line-height:1;pointer-events:none;}
-.hero-tag{display:inline-block;border:1px solid #444;color:#aaa;font-size:0.68rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;padding:0.35rem 0.85rem;margin-bottom:2.5rem;width:fit-content;}
-.hero-left h1{font-family:'Fraunces',serif;font-size:clamp(2.8rem,4.5vw,4.5rem);font-weight:900;color:#fff;line-height:1.05;margin-bottom:1.5rem;letter-spacing:-0.03em;}
-.hero-left h1 em{font-style:italic;color:var(--accent);}
-.hero-left p{color:#aaa;font-size:1rem;line-height:1.7;margin-bottom:2rem;max-width:380px;}
-.hero-left .byline{color:#666;font-size:0.8rem;}
-.hero-left .byline strong{color:#aaa;}
-.hero-right-label{font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:0.5rem;}
-.hero-right h2{font-family:'Fraunces',serif;font-weight:900;font-size:1.8rem;color:#fff;line-height:1.2;}
+/* LEFT SIDEBAR NAV */
+.sidebar{background:var(--ink);border-right:2px solid var(--accent);position:sticky;top:0;height:100vh;overflow-y:auto;padding:30px 20px;color:#fff;}
+.sidebar h2{font-family:'Fraunces',serif;font-size:1.5rem;margin-bottom:20px;color:#fff;}
+.sidebar h2 span{color:var(--accent);}
+.sidebar nav{display:flex;flex-direction:column;gap:8px;}
+.nav-section{margin-bottom:25px;}
+.nav-section h3{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.05em;color:#666;margin-bottom:10px;font-weight:600;}
+.nav-link{display:block;padding:8px 12px;text-decoration:none;color:#aaa;border-radius:6px;font-size:0.95rem;transition:all 0.2s;}
+.nav-link:hover{background:var(--accent);color:#fff;}
+.nav-link.active{background:var(--accent);color:#fff;font-weight:500;}
+.nav-pdf{background:rgba(255,61,46,0.15);color:var(--accent) !important;font-weight:700;border:1px solid var(--accent);}
+.nav-pdf:hover{background:var(--accent);color:#fff !important;}
+
+/* MAIN CONTENT */
+.content{max-width:900px;margin:0 auto;padding:40px 40px 80px;}
+
+/* HERO - COMPACT */
+.hero{background:var(--ink);padding:4rem 4rem;margin:-40px -40px 40px;position:relative;overflow:hidden;}
+.hero::before{content:'AI';font-family:'Fraunces',serif;font-weight:900;font-size:16rem;color:rgba(255,255,255,0.08);position:absolute;bottom:-2rem;right:-2rem;line-height:1;pointer-events:none;}
+.hero-tag{display:inline-block;border:1px solid #444;color:#aaa;font-size:0.68rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;padding:0.35rem 0.85rem;margin-bottom:1.5rem;}
+.hero h1{font-family:'Fraunces',serif;font-size:clamp(2.5rem,4vw,3.5rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:1rem;letter-spacing:-0.03em;}
+.hero h1 em{font-style:italic;color:var(--accent);}
+.hero p{color:#aaa;font-size:1rem;line-height:1.7;margin-bottom:1.5rem;max-width:600px;}
+.hero .byline{color:#666;font-size:0.8rem;}
+.hero .byline strong{color:#aaa;}
 
 /* WHAT IS */
-.what-is{border-bottom:3px solid var(--ink);padding:3rem 4rem;display:grid;grid-template-columns:180px 1fr;gap:3rem;align-items:center;}
-.wi-label{font-family:'Fraunces',serif;font-size:3rem;font-weight:900;color:var(--accent);line-height:1;}
-.wi-sub{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-top:0.3rem;}
+.what-is{border-left:4px solid var(--accent);padding:2rem;margin:3rem 0;background:#fff8f7;}
+.wi-label{font-family:'Fraunces',serif;font-size:2rem;font-weight:900;color:var(--accent);line-height:1;margin-bottom:0.5rem;}
 .wi-text{font-size:1.05rem;color:#333;line-height:1.75;}
 .wi-text strong{color:var(--ink);}
 
 /* SECTIONS */
-.section{max-width:1000px;margin:0 auto;padding:5rem 2rem;}
-.section-header{display:grid;grid-template-columns:120px 1fr;gap:2rem;align-items:baseline;border-bottom:2px solid var(--ink);padding-bottom:1.25rem;margin-bottom:3rem;}
-.section-num{font-family:'Fraunces',serif;font-size:3rem;font-weight:900;color:var(--border);line-height:1;}
-.section-title h2{font-family:'Fraunces',serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:900;color:var(--ink);letter-spacing:-0.02em;line-height:1.15;}
-.section-title p{margin-top:0.5rem;color:var(--muted);font-size:0.95rem;}
+.section{margin:5rem 0;}
+.section-header{border-bottom:2px solid var(--ink);padding-bottom:1.25rem;margin-bottom:3rem;}
+.section-num{font-family:'Fraunces',serif;font-size:2.5rem;font-weight:900;color:var(--border);line-height:1;display:inline-block;margin-right:1rem;}
+.section-title{display:inline-block;}
 .section-label-sm{font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:0.35rem;}
+.section-title h2{font-family:'Fraunces',serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:900;color:var(--ink);letter-spacing:-0.02em;line-height:1.15;display:inline;}
+.section-title p{margin-top:0.5rem;color:var(--muted);font-size:0.95rem;}
 
 /* VIDEO */
 .video-wrapper{position:relative;padding-bottom:56.25%;height:0;margin:2.5rem 0;}
@@ -74,9 +83,8 @@ nav a:hover{color:#fff;}
 .flow-table tr:hover .fn{color:var(--accent);}
 
 /* FILE CARDS */
-.file-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:2rem 0;border:2px solid var(--ink);}
-.file-card{padding:1.5rem;border-right:2px solid var(--ink);transition:background 0.2s;}
-.file-card:last-child{border-right:none;}
+.file-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin:2rem 0;}
+.file-card{padding:1.5rem;border:2px solid var(--ink);transition:background 0.2s;}
 .file-card:hover{background:#f0f0e8;}
 .fc-accent{display:block;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:0.35rem;}
 .fc-name{display:block;font-family:monospace;font-size:0.88rem;font-weight:700;color:var(--ink);margin-bottom:0.6rem;}
@@ -97,9 +105,8 @@ nav a:hover{color:#fff;}
 .sub-cell p{font-size:0.8rem;color:var(--muted);margin-top:0.3rem;}
 
 /* MODEL CARDS */
-.model-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--ink);margin:2rem 0;}
-.mc{padding:2rem;border-right:2px solid var(--ink);}
-.mc:last-child{border-right:none;}
+.model-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin:2rem 0;}
+.mc{padding:2rem;border:2px solid var(--ink);}
 .mc-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;}
 .mc-name{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:900;color:var(--ink);}
 .mc-tag{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.6rem;border:1px solid currentColor;}
@@ -117,9 +124,8 @@ nav a:hover{color:#fff;}
 .tier-t{font-size:0.7rem;color:var(--muted);}
 
 /* MEMORY */
-.mem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--ink);margin:2rem 0;}
-.ml{padding:2rem;border-right:2px solid var(--ink);position:relative;overflow:hidden;}
-.ml:last-child{border-right:none;}
+.mem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin:2rem 0;}
+.ml{padding:2rem;border:2px solid var(--ink);position:relative;overflow:hidden;}
 .ml::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;}
 .ml.s1::after{background:var(--accent);}
 .ml.s2::after{background:var(--accent2);}
@@ -160,38 +166,23 @@ nav a:hover{color:#fff;}
 .step-body code{background:var(--border);padding:0.1rem 0.4rem;font-size:0.8rem;color:var(--ink);}
 
 pre{background:var(--ink);color:#c8ffa0;padding:1.75rem;overflow-x:auto;font-size:0.8rem;line-height:1.75;margin:1.5rem 0;}
-.c{color:#555;}
+.c{color:#888;}
 
-/* CTA */
-.cta{background:var(--accent);padding:4rem;margin:3rem 0;position:relative;overflow:hidden;}
-.cta::after{content:'→';font-family:'Fraunces',serif;font-size:20rem;font-weight:900;color:rgba(255,255,255,0.1);position:absolute;right:-3rem;top:-4rem;pointer-events:none;}
-.cta h3{font-family:'Fraunces',serif;font-size:2.5rem;font-weight:900;color:#fff;margin-bottom:0.75rem;letter-spacing:-0.02em;max-width:500px;line-height:1.1;}
-.cta p{color:rgba(255,255,255,0.8);max-width:440px;margin-bottom:2rem;font-size:0.95rem;line-height:1.65;}
-.cta-btns{display:flex;gap:1rem;flex-wrap:wrap;}
-.btn-p{background:#fff;color:var(--accent);padding:0.85rem 2rem;font-weight:700;font-size:0.85rem;text-decoration:none;transition:transform 0.2s;}
-.btn-p:hover{transform:translateY(-2px);}
-.btn-s{background:transparent;color:#fff;padding:0.85rem 2rem;font-weight:700;font-size:0.85rem;text-decoration:none;border:2px solid rgba(255,255,255,0.5);transition:border-color 0.2s;}
-.btn-s:hover{border-color:#fff;}
-
-footer{background:var(--ink);text-align:center;padding:2rem;color:#666;font-size:0.8rem;}
-footer a{color:#aaa;text-decoration:none;}
-
-/* EMAIL CAPTURE — TOP (inside hero-right) */
+/* EMAIL FORMS */
 .email-hero-form{margin-top:2.5rem;}
-.email-hero-form .ef-label{font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.65);display:block;margin-bottom:0.75rem;}
-.email-hero-form .ef-row{display:flex;gap:0;max-width:420px;}
-.email-hero-form input[type="email"]{flex:1;background:rgba(255,255,255,0.15);border:2px solid rgba(255,255,255,0.3);border-right:none;color:#fff;font-family:'Outfit',sans-serif;font-size:0.9rem;padding:0.85rem 1.1rem;outline:none;transition:border-color 0.2s;}
+.email-hero-form .ef-label{font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#aaa;display:block;margin-bottom:0.75rem;}
+.email-hero-form .ef-row{display:flex;gap:0;max-width:500px;}
+.email-hero-form input[type="email"]{flex:1;background:rgba(255,255,255,0.1);border:2px solid rgba(255,255,255,0.3);border-right:none;color:#fff;font-family:'Outfit',sans-serif;font-size:0.9rem;padding:0.85rem 1.1rem;outline:none;transition:border-color 0.2s;}
 .email-hero-form input[type="email"]::placeholder{color:rgba(255,255,255,0.45);}
 .email-hero-form input[type="email"]:focus{border-color:rgba(255,255,255,0.7);}
-.email-hero-form button{background:#fff;color:var(--accent);font-family:'Outfit',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;padding:0.85rem 1.4rem;border:2px solid #fff;cursor:pointer;transition:background 0.2s,color 0.2s;white-space:nowrap;}
-.email-hero-form button:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
-.email-hero-form .ef-fine{font-size:0.72rem;color:rgba(255,255,255,0.4);margin-top:0.6rem;}
-.ef-success{display:none;font-size:0.9rem;color:#fff;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);padding:0.75rem 1rem;margin-top:0.75rem;max-width:420px;}
+.email-hero-form button{background:var(--accent);color:#fff;font-family:'Outfit',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;padding:0.85rem 1.4rem;border:2px solid var(--accent);cursor:pointer;transition:opacity 0.2s;white-space:nowrap;}
+.email-hero-form button:hover{opacity:0.88;}
+.email-hero-form .ef-fine{font-size:0.72rem;color:#888;margin-top:0.6rem;}
+.ef-success{display:none;font-size:0.9rem;color:#fff;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);padding:0.75rem 1rem;margin-top:0.75rem;max-width:500px;}
 
-/* EMAIL CAPTURE — BOTTOM */
-.email-bottom{background:var(--ink);border-top:4px solid var(--accent);padding:5rem 2rem;}
+/* EMAIL BOTTOM */
+.email-bottom{background:var(--ink);border-top:4px solid var(--accent);padding:5rem 2rem;margin:5rem -40px -80px;}
 .email-bottom-inner{max-width:700px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
-.eb-left{}
 .eb-eyebrow{font-size:0.68rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem;display:block;}
 .eb-left h3{font-family:'Fraunces',serif;font-size:2rem;font-weight:900;color:#fff;line-height:1.15;letter-spacing:-0.02em;}
 .eb-left p{color:#888;font-size:0.9rem;margin-top:0.75rem;line-height:1.65;}
@@ -205,245 +196,291 @@ footer a{color:#aaa;text-decoration:none;}
 .eb-fine{font-size:0.72rem;color:#555;margin-top:0.25rem;}
 .eb-success{display:none;font-size:0.9rem;color:var(--accent);background:rgba(255,61,46,0.1);border:1px solid rgba(255,61,46,0.3);padding:0.85rem 1rem;text-align:center;}
 
-@media(max-width:768px){
-  .hero{grid-template-columns:1fr;min-height:auto;}
-  .hero-right{display:none;}
-  .hero-left{padding:5rem 1.5rem 3rem;}
-  .what-is{grid-template-columns:1fr;gap:1rem;padding:2.5rem 1.5rem;}
-  .section{padding:3rem 1.25rem;}
-  .file-grid{grid-template-columns:repeat(2,1fr);}
-  .file-card{border-right:none;border-bottom:2px solid var(--ink);}
-  .model-strip,.mem-grid{grid-template-columns:1fr;}
-  .mc,.ml{border-right:none;border-bottom:2px solid var(--ink);}
-  .section-header{grid-template-columns:1fr;gap:0.5rem;}
+@media(max-width:1024px){
+  .layout{grid-template-columns:1fr;}
+  .sidebar{display:none;}
+  .hero{margin:-40px -20px 40px;}
+  .content{padding:40px 20px 80px;}
+  .file-grid,.model-strip,.mem-grid{grid-template-columns:1fr;}
+  .email-bottom{margin:5rem -20px -80px;}
   .email-bottom-inner{grid-template-columns:1fr;gap:2.5rem;}
-  .email-hero-form .ef-row{flex-direction:column;}
-  .email-hero-form input[type="email"]{border-right:2px solid rgba(255,255,255,0.3);}
 }
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-logo">Open<span>Claw</span></div>
-  <a href="#intro">Intro</a>
-  <a href="#how">How It Works</a>
-  <a href="#setup">Setup</a>
-  <a href="#models">Models</a>
-  <a href="#soul">SOUL</a>
-  <a href="#memory">Memory</a>
-  <a href="#skills">Skills</a>
-  <a href="#advanced">Advanced</a>
-</nav>
-
-<div class="hero">
-  <div class="hero-left">
-    <div class="hero-tag">Free Guide · No Coding Required</div>
-    <h1>Build Your<br>Personal<br><em>AI Agent</em><br>in 60 Minutes</h1>
-    <p>OpenClaw gives you a powerful AI assistant that lives in your messaging apps, handles your busywork, and actually remembers what you tell it.</p>
-    <div class="byline" style="color:#666;font-size:0.8rem;">Written by <strong style="color:#aaa;">Tim Pittman</strong></div>
-  </div>
-  <div class="hero-right">
-    <div>
-      <div class="hero-right-label">What you'll build</div>
-      <h2>A 24/7 AI assistant that knows you, works for you, and never forgets.</h2>
+<div class="layout">
+  <!-- LEFT SIDEBAR -->
+  <aside class="sidebar">
+    <h2>Open<span>Claw</span></h2>
+    
+    <nav>
+      <div class="nav-section">
+        <h3>Core Concepts</h3>
+        <a href="#intro" class="nav-link">What Is OpenClaw?</a>
+        <a href="#how" class="nav-link">How It Works</a>
+      </div>
+      
+      <div class="nav-section">
+        <h3>Lessons</h3>
+        <a href="#setup" class="nav-link">Lesson 1: Setup</a>
+        <a href="#models" class="nav-link">Lesson 2: Models</a>
+        <a href="#soul" class="nav-link">Lesson 3: SOUL</a>
+        <a href="#memory" class="nav-link">Lesson 4: Memory</a>
+        <a href="#skills" class="nav-link">Lesson 5: Skills</a>
+        <a href="#advanced" class="nav-link">Lesson 6: Advanced</a>
+      </div>
+      
+      <div class="nav-section">
+        <a href="openclaw-complete-guide.pdf" class="nav-link nav-pdf">📄 Download PDF</a>
+      </div>
+    </nav>
+  </aside>
+  
+  <!-- MAIN CONTENT -->
+  <main class="content">
+    <!-- COMPACT HERO -->
+    <div class="hero">
+      <div class="hero-tag">Free Guide · No Coding Required</div>
+      <h1>Build Your Personal <em>AI Agent</em> in 60 Minutes</h1>
+      <p>OpenClaw gives you a powerful AI assistant that lives in your messaging apps, handles your busywork, and actually remembers what you tell it.</p>
+      <div class="byline">Written by <strong>Tim Pittman</strong></div>
+      
+      <div class="email-hero-form">
+        <span class="ef-label">Get future guides, courses &amp; templates</span>
+        <form id="form-top" action="https://formspree.io/f/xwvnnlae" method="POST" onsubmit="handleSubmit(event,'form-top','success-top')">
+          <div class="ef-row">
+            <input type="email" name="email" placeholder="your@email.com" required/>
+            <button type="submit">Sign Up →</button>
+          </div>
+          <div class="ef-fine">No spam. Unsubscribe anytime.</div>
+        </form>
+        <div class="ef-success" id="success-top">✓ You're in! We'll be in touch.</div>
+      </div>
     </div>
-    <div class="email-hero-form">
-      <span class="ef-label">Get future guides, courses &amp; templates</span>
-      <form id="form-top" action="https://formspree.io/f/xwvnnlae" method="POST" onsubmit="handleSubmit(event,'form-top','success-top')">
-        <div class="ef-row">
-          <input type="email" name="email" placeholder="your@email.com" required/>
-          <button type="submit">Sign Up →</button>
+
+    <!-- WHAT IS -->
+    <div class="what-is">
+      <div class="wi-label">What is OpenClaw?</div>
+      <div class="wi-text">OpenClaw is <strong>free, open-source software</strong> you install on your Mac or Linux computer. Once set up, it gives you a personal AI assistant that lives in Telegram, Slack, or WhatsApp. You talk to it in plain English — it responds, takes action, and remembers everything. Think of it as a very smart personal assistant that never sleeps, for just a few dollars a month.</div>
+    </div>
+
+    <!-- CORE CONCEPTS -->
+    <div class="section" id="intro">
+      <div class="section-header">
+        <span class="section-num">00</span>
+        <div class="section-title">
+          <span class="section-label-sm">// Core Concept</span>
+          <h2>You Don't Need to Be Technical</h2>
+          <p>AI agents aren't just for engineers. If you can use Slack, you can build one.</p>
         </div>
-        <div class="ef-fine">No spam. Unsubscribe anytime.</div>
-      </form>
-      <div class="ef-success" id="success-top">✓ You're in! We'll be in touch.</div>
+      </div>
+
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/fii5RCHs3eQ?si=68v1A--UtaLIATzb" title="Introduction to OpenClaw" allowfullscreen></iframe>
+      </div>
+
+      <p style="color:#444;line-height:1.75;">You're busy. You don't have time to learn programming. But you also don't want to feel left behind as AI transforms everything. Here's the deal: you don't need to understand how AI works under the hood — you just need to know how to use it.</p>
     </div>
-  </div>
-</div>
 
-<div class="what-is">
-  <div><div class="wi-label">What is it?</div><div class="wi-sub">Start here</div></div>
-  <div class="wi-text">OpenClaw is <strong>free, open-source software</strong> you install on your Mac or Linux computer. Once set up, it gives you a personal AI assistant that lives in Telegram, Slack, or WhatsApp. You talk to it in plain English — it responds, takes action, and remembers everything. Think of it as a very smart personal assistant that never sleeps, for just a few dollars a month.</div>
-</div>
+    <div class="section" id="how">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <div class="section-title">
+          <span class="section-label-sm">// Core Concept</span>
+          <h2>How It Works</h2>
+          <p>Every time you message your agent, this happens in about a second.</p>
+        </div>
+      </div>
 
-<div class="section" id="intro">
-  <div class="section-header">
-    <div class="section-num">00</div>
-    <div class="section-title"><span class="section-label-sm">// Intro</span><h2>You Don't Need to Be Technical.</h2><p>AI agents aren't just for engineers. If you can use Slack, you can build one.</p></div>
-  </div>
+      <table class="flow-table">
+        <tr><td class="fn">1</td><td><div class="ft">You send a message</div><div class="fd">Via Telegram, Slack, WhatsApp, or terminal</div></td></tr>
+        <tr><td class="fn">2</td><td><div class="ft">OpenClaw reads your files</div><div class="fd">Loads SOUL.md, USER.md, MEMORY.md — your agent's identity and history</div></td></tr>
+        <tr><td class="fn">3</td><td><div class="ft">The AI model understands your request</div><div class="fd">Claude, GPT, or Minimax processes what you're asking with full context</div></td></tr>
+        <tr><td class="fn">4</td><td><div class="ft">It takes action</div><div class="fd">Calls tools, runs skills, or spawns sub-agents</div></td></tr>
+        <tr><td class="fn">5</td><td><div class="ft">It remembers</div><div class="fd">Writes important details back to MEMORY.md</div></td></tr>
+        <tr><td class="fn">6</td><td><div class="ft">You get a response</div><div class="fd">Personalized, context-aware, and ready for your next message</div></td></tr>
+      </table>
 
-  <div class="video-wrapper">
-    <iframe src="https://www.youtube.com/embed/fii5RCHs3eQ?si=68v1A--UtaLIATzb" title="Introduction to OpenClaw" allowfullscreen></iframe>
-  </div>
+      <div class="file-grid">
+        <div class="file-card"><span class="fc-accent">WHO it is</span><span class="fc-name">SOUL.md</span><p>Personality, tone, values. What makes your agent feel like yours.</p></div>
+        <div class="file-card"><span class="fc-accent">WHO you are</span><span class="fc-name">USER.md</span><p>Your preferences and goals. Helps the agent tailor everything to you.</p></div>
+        <div class="file-card"><span class="fc-accent">What it remembers</span><span class="fc-name">MEMORY.md</span><p>Long-term memory that persists across every session, forever.</p></div>
+        <div class="file-card"><span class="fc-accent">Your environment</span><span class="fc-name">TOOLS.md</span><p>Your local setup — device names, shortcuts, preferences.</p></div>
+      </div>
 
-  <p style="color:#444;line-height:1.75;">You're busy. You don't have time to learn programming. But you also don't want to feel left behind as AI transforms everything. Here's the deal: you don't need to understand how AI works under the hood — you just need to know how to use it.</p>
-</div>
-
-<div class="section" id="how" style="background:#f5f5f0;max-width:100%;padding:5rem 0;">
-<div style="max-width:1000px;margin:0 auto;padding:0 2rem;">
-  <div class="section-header">
-    <div class="section-num">01</div>
-    <div class="section-title"><span class="section-label-sm">// How It Works</span><h2>What Happens When You Send a Message</h2><p>Every time you message your agent, this happens in about a second.</p></div>
-  </div>
-
-  <table class="flow-table">
-    <tr><td class="fn">1</td><td><div class="ft">You send a message</div><div class="fd">Via Telegram, Slack, WhatsApp, or terminal</div></td></tr>
-    <tr><td class="fn">2</td><td><div class="ft">OpenClaw reads your files</div><div class="fd">Loads SOUL.md, USER.md, MEMORY.md — your agent's identity and history</div></td></tr>
-    <tr><td class="fn">3</td><td><div class="ft">The AI model understands your request</div><div class="fd">Claude, GPT, or Minimax processes what you're asking with full context</div></td></tr>
-    <tr><td class="fn">4</td><td><div class="ft">It takes action</div><div class="fd">Calls tools, runs skills, or spawns sub-agents</div></td></tr>
-    <tr><td class="fn">5</td><td><div class="ft">It remembers</div><div class="fd">Writes important details back to MEMORY.md</div></td></tr>
-    <tr><td class="fn">6</td><td><div class="ft">You get a response</div><div class="fd">Personalized, context-aware, and ready for your next message</div></td></tr>
-  </table>
-
-  <div class="file-grid">
-    <div class="file-card"><span class="fc-accent">WHO it is</span><span class="fc-name">SOUL.md</span><p>Personality, tone, values. What makes your agent feel like yours.</p></div>
-    <div class="file-card"><span class="fc-accent">WHO you are</span><span class="fc-name">USER.md</span><p>Your preferences and goals. Helps the agent tailor everything to you.</p></div>
-    <div class="file-card"><span class="fc-accent">What it remembers</span><span class="fc-name">MEMORY.md</span><p>Long-term memory that persists across every session, forever.</p></div>
-    <div class="file-card"><span class="fc-accent">Your environment</span><span class="fc-name">TOOLS.md</span><p>Your local setup — device names, shortcuts, preferences.</p></div>
-  </div>
-
-  <div class="agent-diagram">
-    <div class="ad-top">
-      <span class="ad-top-badge">Main Agent</span>
-      <h4>The Boss</h4>
-      <p>Full-time · Has memory · Knows you</p>
+      <div class="agent-diagram">
+        <div class="ad-top">
+          <span class="ad-top-badge">Main Agent</span>
+          <h4>The Boss</h4>
+          <p>Full-time · Has memory · Knows you</p>
+        </div>
+        <div class="ad-bottom">
+          <div class="sub-cell"><span class="sc-badge">Sub-Agent</span><h5>Warren</h5><p>📈 Investment tracking</p></div>
+          <div class="sub-cell"><span class="sc-badge">Sub-Agent</span><h5>Crawly</h5><p>🔍 Research & info</p></div>
+          <div class="sub-cell"><span class="sc-badge">Sub-Agent</span><h5>Cathie</h5><p>✍️ Content creation</p></div>
+        </div>
+      </div>
     </div>
-    <div class="ad-bottom">
-      <div class="sub-cell"><span class="sc-badge">Sub-Agent</span><h5>Warren</h5><p>📈 Investment tracking</p></div>
-      <div class="sub-cell"><span class="sc-badge">Sub-Agent</span><h5>Crawly</h5><p>🔍 Research & info</p></div>
-      <div class="sub-cell"><span class="sc-badge">Sub-Agent</span><h5>Cathie</h5><p>✍️ Content creation</p></div>
-    </div>
-  </div>
-</div>
-</div>
 
-<div class="section" id="setup">
-  <div class="section-header">
-    <div class="section-num">02</div>
-    <div class="section-title"><span class="section-label-sm">// Section 1</span><h2>Setup in 30 Minutes</h2><p>Get OpenClaw installed and your first agent running.</p></div>
-  </div>
+    <!-- LESSONS -->
+    <div class="section" id="setup">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <div class="section-title">
+          <span class="section-label-sm">// Lesson 1</span>
+          <h2>Setup in 30 Minutes</h2>
+          <p>Get OpenClaw installed and your first agent running.</p>
+        </div>
+      </div>
 
-  <div class="video-wrapper">
-    <iframe src="https://www.youtube.com/embed/EKJjSDBkGUo?si=36kWSqom2TwaIAbk" title="Setup Walkthrough" allowfullscreen></iframe>
-  </div>
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/EKJjSDBkGUo?si=36kWSqom2TwaIAbk" title="Setup Walkthrough" allowfullscreen></iframe>
+      </div>
 
-  <div class="callout info"><span class="cl">⚠️ One Small Technical Step</span>Installation uses the command line — the black text window. It takes 2 minutes and is the only moment that requires copying and pasting commands.</div>
-  <pre><span class="c"># Download OpenClaw</span>
+      <div class="callout info"><span class="cl">⚠️ One Small Technical Step</span>Installation uses the command line — the black text window. It takes 2 minutes and is the only moment that requires copying and pasting commands.</div>
+      <pre><span class="c"># Download OpenClaw</span>
 git clone https://github.com/openclaw/openclaw.git
 cd openclaw
 
 npm install && npm run setup</pre>
 
-  <div class="steps">
-    <div class="step"><div class="step-num">1</div><div class="step-body"><strong>Telegram (Recommended)</strong><p>Message <code>@BotFather</code> → type <code>/newbot</code> → copy API token → paste into setup wizard.</p></div></div>
-    <div class="step"><div class="step-num">2</div><div class="step-body"><strong>Slack</strong><p>Go to <code>api.slack.com</code> → Create App → copy OAuth token → paste into setup wizard.</p></div></div>
-    <div class="step"><div class="step-num">3</div><div class="step-body"><strong>WhatsApp</strong><p>Select WhatsApp in the setup wizard and follow the QR code scanning flow.</p></div></div>
-  </div>
-</div>
-
-<div class="section" id="models" style="background:#f5f5f0;max-width:100%;padding:5rem 0;">
-<div style="max-width:1000px;margin:0 auto;padding:0 2rem;">
-  <div class="section-header">
-    <div class="section-num">03</div>
-    <div class="section-title"><span class="section-label-sm">// Section 2</span><h2>Understanding Models</h2><p>Use the right AI for the right job — and save money doing it.</p></div>
-  </div>
-
-  <div class="video-wrapper">
-    <iframe src="https://www.youtube.com/embed/LCPP_zEk48M?si=u9_FwnHfqUuOEDsH" title="Choosing the Right AI Model" allowfullscreen></iframe>
-  </div>
-
-  <div class="model-strip">
-    <div class="mc"><div class="mc-top"><div class="mc-name">Claude</div><span class="mc-tag a">Anthropic</span></div><p class="mc-desc">Best for writing, analysis, nuanced reasoning. Less likely to make things up.</p><div class="tier"><span class="tier-n">Haiku</span><div class="tier-b"><div class="tier-f a" style="width:35%"></div></div><span class="tier-t">Fast · $</span></div><div class="tier"><span class="tier-n">Sonnet</span><div class="tier-b"><div class="tier-f a" style="width:65%"></div></div><span class="tier-t">Balanced · $$</span></div><div class="tier"><span class="tier-n">Opus</span><div class="tier-b"><div class="tier-f a" style="width:95%"></div></div><span class="tier-t">Best · $$$</span></div></div>
-    <div class="mc"><div class="mc-top"><div class="mc-name">GPT</div><span class="mc-tag g">OpenAI</span></div><p class="mc-desc">Best for coding, general tasks, complex multi-part instructions.</p><div class="tier"><span class="tier-n">4o Mini</span><div class="tier-b"><div class="tier-f g" style="width:40%"></div></div><span class="tier-t">Fast · $</span></div><div class="tier"><span class="tier-n">4o</span><div class="tier-b"><div class="tier-f g" style="width:72%"></div></div><span class="tier-t">Balanced · $$</span></div><div class="tier"><span class="tier-n">o1</span><div class="tier-b"><div class="tier-f g" style="width:95%"></div></div><span class="tier-t">Reasoning · $$$</span></div></div>
-    <div class="mc"><div class="mc-top"><div class="mc-name">MiniMax</div><span class="mc-tag m">Minimax</span></div    <p class="mc-desc">Best for high-volume, cost-sensitive tasks where speed matters most.</p><div class="tier"><span class="tier-n">M2.5</span><div class="tier-b"><div class="tier-f m" style="width:55%"></div></div><span class="tier-t">Fast · $</span></div></div>
-  </div>
-
-  <table class="dt">
-    <thead><tr><th>Task</th><th>Best Choice</th><th>Why</th></tr></thead>
-    <tbody>
-      <tr><td>Quick reminders, simple lookups</td><td><span class="pill f">Haiku / 4o Mini</span></td><td>Fast and cheap</td></tr>
-      <tr><td>Writing, editing, brainstorming</td><td><span class="pill c">Sonnet</span></td><td>Claude excels at nuanced language</td></tr>
-      <tr><td>Coding, technical tasks</td><td><span class="pill g">GPT-4o</span></td><td>OpenAI leads at code generation</td></tr>
-      <tr><td>Complex analysis, multi-step reasoning</td><td><span class="pill c">Opus</span> / <span class="pill g">o1</span></td><td>Use heavyweights for hard stuff</td></tr>
-    </tbody>
-  </table>
-</div>
-</div>
-
-<div class="section" id="soul">
-  <div class="section-header">
-    <div class="section-num">04</div>
-    <div class="section-title"><span class="section-label-sm">// Section 3</span><h2>Building Your Bot's SOUL</h2><p>This is where most people get stuck — here's the full picture.</p></div>
-  </div>
-  <div class="video-wrapper">
-    <iframe src="https://www.youtube.com/embed/cN-uE3ZXU18?si=_FwwYdrUXKik7Cvn" title="Customizing Your Agent's SOUL" allowfullscreen></iframe>
-  </div>
-  <p style="color:#444;line-height:1.75;">SOUL.md defines <em>who</em> your agent is — its personality, tone, and values. Two people using identical tools but different SOUL.md files will have completely different experiences.</p>
-</div>
-
-<div class="section" id="memory" style="background:#f5f5f0;max-width:100%;padding:5rem 0;">
-<div style="max-width:1000px;margin:0 auto;padding:0 2rem;">
-  <div class="section-header">
-    <div class="section-num">05</div>
-    <div class="section-title"><span class="section-label-sm">// Section 4</span><h2>Memory & Context</h2><p>Without memory, your agent resets every conversation.</p></div>
-  </div>
-  <div class="video-wrapper">
-    <iframe src="https://www.youtube.com/embed/JRIp1w-q4bs?si=YnCIR-4Mz8BsabMR" title="Setting Up Agent Memory" allowfullscreen></iframe>
-  </div>
-  <div class="mem-grid">
-    <div class="ml s1"><span class="ml-icon">⚡</span><h4>Short-Term</h4><p>Current conversation only. Resets when the session ends — like RAM.</p><span class="ml-badge">in-session</span></div>
-    <div class="ml s2"><span class="ml-icon">📅</span><h4>Daily Memory</h4><p>A log for each day you use OpenClaw. Auto-referenced for the past 2 days.</p><span class="ml-badge">YYYY-MM-DD.md</span></div>
-    <div class="ml s3"><span class="ml-icon">🧠</span><h4>Long-Term</h4><p>Persistent facts and preferences that never expire. Your agent's permanent memory.</p><span class="ml-badge">MEMORY.md</span></div>
-  </div>
-  <div class="callout tip"><span class="cl">✅ Best Practice</span>Before ending any session: <strong>"Update memory with what we worked on today and what's pending."</strong></div>
-</div>
-</div>
-
-<div class="section" id="skills">
-  <div class="section-header">
-    <div class="section-num">06</div>
-    <div class="section-title"><span class="section-label-sm">// Section 5</span><h2>Skills</h2><p>Skills are like apps for your agent.</p></div>
-  </div>
-  <div class="video-placeholder">
-    <div class="vp-stripe"></div>
-    <div class="play-ring"><svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div>
-    <p>Watch: Installing & Creating Skills (add your YouTube link here)</p>
-  </div>
-  <div class="callout warn"><span class="cl">🚨 Gmail — Use a Dedicated Account</span>Never connect your personal Gmail. Create a new account just for your bot.</div>
-</div>
-
-<div class="section" id="advanced" style="background:#f5f5f0;max-width:100%;padding:5rem 0;">
-<div style="max-width:1000px;margin:0 auto;padding:0 2rem;">
-  <div class="section-header">
-    <div class="section-num">07</div>
-    <div class="section-title"><span class="section-label-sm">// Advanced</span><h2>Advanced Patterns</h2><p>Once you're comfortable with the basics, here's how to level up.</p></div>
-  </div>
-  <div class="video-placeholder">
-    <div class="vp-stripe"></div>
-    <div class="play-ring"><svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div>
-    <p>Watch: Advanced Agent Patterns (add your YouTube link here)</p>
-  </div>
-</div>
-</div>
-
-<div class="email-bottom">
-  <div class="email-bottom-inner">
-    <div class="eb-left">
-      <span class="eb-eyebrow">Stay in the loop</span>
-      <h3>More guides, courses &amp; templates on the way.</h3>
-      <p>Sign up to get access to future guides, courses, and templates to work with AI — delivered straight to your inbox.</p>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><strong>Telegram (Recommended)</strong><p>Message <code>@BotFather</code> → type <code>/newbot</code> → copy API token → paste into setup wizard.</p></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><strong>Slack</strong><p>Go to <code>api.slack.com</code> → Create App → copy OAuth token → paste into setup wizard.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><strong>WhatsApp</strong><p>Select WhatsApp in the setup wizard and follow the QR code scanning flow.</p></div></div>
+      </div>
     </div>
-    <div class="eb-right">
-      <form id="form-bottom" action="https://formspree.io/f/xwvnnlae" method="POST" onsubmit="handleSubmit(event,'form-bottom','success-bottom')">
-        <label for="email-bottom">Your email address</label>
-        <input type="email" id="email-bottom" name="email" placeholder="you@example.com" required/>
-        <button type="submit">Get Access →</button>
-        <div class="eb-fine">No spam. Unsubscribe anytime.</div>
-      </form>
-      <div class="eb-success" id="success-bottom">✓ You're in! Check your inbox soon.</div>
+
+    <div class="section" id="models">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <div class="section-title">
+          <span class="section-label-sm">// Lesson 2</span>
+          <h2>Understanding Models</h2>
+          <p>Use the right AI for the right job — and save money doing it.</p>
+        </div>
+      </div>
+
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/LCPP_zEk48M?si=u9_FwnHfqUuOEDsH" title="Choosing the Right AI Model" allowfullscreen></iframe>
+      </div>
+
+      <div class="model-strip">
+        <div class="mc"><div class="mc-top"><div class="mc-name">Claude</div><span class="mc-tag a">Anthropic</span></div><p class="mc-desc">Best for writing, analysis, nuanced reasoning. Less likely to make things up.</p><div class="tier"><span class="tier-n">Haiku</span><div class="tier-b"><div class="tier-f a" style="width:35%"></div></div><span class="tier-t">Fast · $</span></div><div class="tier"><span class="tier-n">Sonnet</span><div class="tier-b"><div class="tier-f a" style="width:65%"></div></div><span class="tier-t">Balanced · $$</span></div><div class="tier"><span class="tier-n">Opus</span><div class="tier-b"><div class="tier-f a" style="width:95%"></div></div><span class="tier-t">Best · $$$</span></div></div>
+        <div class="mc"><div class="mc-top"><div class="mc-name">GPT</div><span class="mc-tag g">OpenAI</span></div><p class="mc-desc">Best for coding, general tasks, complex multi-part instructions.</p><div class="tier"><span class="tier-n">4o Mini</span><div class="tier-b"><div class="tier-f g" style="width:40%"></div></div><span class="tier-t">Fast · $</span></div><div class="tier"><span class="tier-n">4o</span><div class="tier-b"><div class="tier-f g" style="width:72%"></div></div><span class="tier-t">Balanced · $$</span></div><div class="tier"><span class="tier-n">o1</span><div class="tier-b"><div class="tier-f g" style="width:95%"></div></div><span class="tier-t">Reasoning · $$$</span></div></div>
+        <div class="mc"><div class="mc-top"><div class="mc-name">MiniMax</div><span class="mc-tag m">Minimax</span></div><p class="mc-desc">Best for high-volume, cost-sensitive tasks where speed matters most.</p><div class="tier"><span class="tier-n">M2.5</span><div class="tier-b"><div class="tier-f m" style="width:55%"></div></div><span class="tier-t">Fast · $</span></div></div>
+      </div>
+
+      <table class="dt">
+        <thead><tr><th>Task</th><th>Best Choice</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>Quick reminders, simple lookups</td><td><span class="pill f">Haiku / 4o Mini</span></td><td>Fast and cheap</td></tr>
+          <tr><td>Writing, editing, brainstorming</td><td><span class="pill c">Sonnet</span></td><td>Claude excels at nuanced language</td></tr>
+          <tr><td>Coding, technical tasks</td><td><span class="pill g">GPT-4o</span></td><td>OpenAI leads at code generation</td></tr>
+          <tr><td>Complex analysis, multi-step reasoning</td><td><span class="pill c">Opus</span> / <span class="pill g">o1</span></td><td>Use heavyweights for hard stuff</td></tr>
+        </tbody>
+      </table>
     </div>
-  </div>
+
+    <div class="section" id="soul">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <div class="section-title">
+          <span class="section-label-sm">// Lesson 3</span>
+          <h2>Building Your Bot's SOUL</h2>
+          <p>This is where most people get stuck — here's the full picture.</p>
+        </div>
+      </div>
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/cN-uE3ZXU18?si=_FwwYdrUXKik7Cvn" title="Customizing Your Agent's SOUL" allowfullscreen></iframe>
+      </div>
+      <p style="color:#444;line-height:1.75;">SOUL.md defines <em>who</em> your agent is — its personality, tone, and values. Two people using identical tools but different SOUL.md files will have completely different experiences.</p>
+    </div>
+
+    <div class="section" id="memory">
+      <div class="section-header">
+        <span class="section-num">05</span>
+        <div class="section-title">
+          <span class="section-label-sm">// Lesson 4</span>
+          <h2>Memory & Context</h2>
+          <p>Without memory, your agent resets every conversation.</p>
+        </div>
+      </div>
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/JRIp1w-q4bs?si=YnCIR-4Mz8BsabMR" title="Setting Up Agent Memory" allowfullscreen></iframe>
+      </div>
+      <div class="mem-grid">
+        <div class="ml s1"><span class="ml-icon">⚡</span><h4>Short-Term</h4><p>Current conversation only. Resets when the session ends — like RAM.</p><span class="ml-badge">in-session</span></div>
+        <div class="ml s2"><span class="ml-icon">📅</span><h4>Daily Memory</h4><p>A log for each day you use OpenClaw. Auto-referenced for the past 2 days.</p><span class="ml-badge">YYYY-MM-DD.md</span></div>
+        <div class="ml s3"><span class="ml-icon">🧠</span><h4>Long-Term</h4><p>Persistent facts and preferences that never expire. Your agent's permanent memory.</p><span class="ml-badge">MEMORY.md</span></div>
+      </div>
+      <div class="callout tip"><span class="cl">✅ Best Practice</span>Before ending any session: <strong>"Update memory with what we worked on today and what's pending."</strong></div>
+    </div>
+
+    <div class="section" id="skills">
+      <div class="section-header">
+        <span class="section-num">06</span>
+        <div class="section-title">
+          <span class="section-label-sm">// Lesson 5</span>
+          <h2>Skills</h2>
+          <p>Skills are like apps for your agent.</p>
+        </div>
+      </div>
+      <div class="video-placeholder">
+        <div class="vp-stripe"></div>
+        <div class="play-ring"><svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div>
+        <p>Watch: Installing & Creating Skills (add your YouTube link here)</p>
+      </div>
+      <div class="callout warn"><span class="cl">🚨 Gmail — Use a Dedicated Account</span>Never connect your personal Gmail. Create a new account just for your bot.</div>
+    </div>
+
+    <div class="section" id="advanced">
+      <div class="section-header">
+        <span class="section-num">07</span>
+        <div class="section-title">
+          <span class="section-label-sm">// Lesson 6</span>
+          <h2>Advanced Patterns</h2>
+          <p>Once you're comfortable with the basics, here's how to level up.</p>
+        </div>
+      </div>
+      <div class="video-placeholder">
+        <div class="vp-stripe"></div>
+        <div class="play-ring"><svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div>
+        <p>Watch: Advanced Agent Patterns (add your YouTube link here)</p>
+      </div>
+    </div>
+
+    <!-- EMAIL CAPTURE -->
+    <div class="email-bottom">
+      <div class="email-bottom-inner">
+        <div class="eb-left">
+          <span class="eb-eyebrow">Stay in the loop</span>
+          <h3>More guides, courses &amp; templates on the way.</h3>
+          <p>Sign up to get access to future guides, courses, and templates to work with AI — delivered straight to your inbox.</p>
+        </div>
+        <div class="eb-right">
+          <form id="form-bottom" action="https://formspree.io/f/xwvnnlae" method="POST" onsubmit="handleSubmit(event,'form-bottom','success-bottom')">
+            <label for="email-bottom">Your email address</label>
+            <input type="email" id="email-bottom" name="email" placeholder="you@example.com" required/>
+            <button type="submit">Get Access →</button>
+            <div class="eb-fine">No spam. Unsubscribe anytime.</div>
+          </form>
+          <div class="eb-success" id="success-bottom">✓ You're in! Check your inbox soon.</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- FOOTER -->
+    <footer style="background:#0a0a0a;text-align:center;padding:2rem;color:#666;font-size:0.85rem;margin:0 -40px -80px;">
+      <p>Built with OpenClaw by <a href="https://www.linkedin.com/in/timothypittman/" style="color:#aaa;text-decoration:none;">Tim Pittman</a></p>
+      <p style="margin-top:0.75rem;">
+        <a href="https://www.linkedin.com/in/timothypittman/" style="color:#aaa;text-decoration:none;margin:0 1rem;">LinkedIn</a> · 
+        <a href="https://x.com/pittman021" style="color:#aaa;text-decoration:none;margin:0 1rem;">X</a> · 
+        <a href="https://github.com/openclaw/openclaw" style="color:#aaa;text-decoration:none;margin:0 1rem;">GitHub</a>
+      </p>
+    </footer>
+  </main>
 </div>
 
 <script>
@@ -466,8 +503,6 @@ function handleSubmit(e, formId, successId) {
   });
 }
 </script>
-
-<footer>© 2025 Tim Pittman · <a href="https://discord.gg/openclaw">Discord</a> · <a href="#">GitHub</a> · <a href="#">@tim on X</a></footer>
 
 </body>
 </html>
